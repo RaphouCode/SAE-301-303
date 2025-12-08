@@ -21,4 +21,15 @@ class BoxManager {
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode($boxes);
 
+    public function findUserByEmail($pdo, $email) {
+        $req = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+        $req->execute([$email]);
+        return $req->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function updateToken($id_client, $token) {
+        $req = $this->pdo->prepare("UPDATE users SET api_token = ? WHERE id = ?");
+        return $req->execute([$token, $id_client]);
+    }
+
 }

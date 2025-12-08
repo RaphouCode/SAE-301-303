@@ -41,4 +41,6 @@ if (!isset($data['prenom'], $data['nom'], $data['email'], $data['mot_de_passe'],
     exit;
 }
 
+
+
 ?>
