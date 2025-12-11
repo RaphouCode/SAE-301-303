@@ -1,0 +1,72 @@
+header {
+  background-color: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: relative;
+  z-index: 10;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  nav {
+    display: flex;
+    justify-content: center; /* Centered as per design, but user icon is on right. */
+    align-items: center;
+    position: relative;
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          text-decoration: none;
+          color: #000;
+          font-weight: 700;
+          text-transform: uppercase;
+          font-size: 0.9rem;
+          letter-spacing: 0.5px;
+
+          &:hover {
+            color: #ff4040; /* Red accent */
+          }
+        }
+      }
+    }
+
+    .user-actions {
+      position: absolute;
+      right: 0;
+      
+      .user-btn {
+        background: none;
+        border: 2px solid #ff4040;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ff4040;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        svg {
+          width: 18px;
+          height: 18px;
+        }
+
+        &:hover {
+          background-color: #ff4040;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
