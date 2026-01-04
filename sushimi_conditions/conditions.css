@@ -1,0 +1,97 @@
+/* POLICE */
+@font-face {
+  font-family: 'Abhaya Libre';
+  src: url('../../fonts/AbhayaLibre-Regular.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Abhaya Libre';
+  src: url('../../fonts/AbhayaLibre-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+
+/* GLOBAL */
+body {
+  margin: 0;
+  background-color: #f6e9ef;
+  font-family: 'Abhaya Libre ', serif;
+  color: #000;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background-color: #f6e9ef;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-logo img {
+  height: 60px;
+}
+
+.navbar-menu {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-menu a {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
+}
+
+.navbar-menu a:hover {
+  opacity: 0.6;
+}
+
+.navbar-icons img {
+  height: 20px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+/* FIL D'ARIANE */
+.breadcrumb {
+  font-size: 14px;
+  padding: 10px 40px;
+}
+
+/* CONTENU */
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding right: 40px;
+  padding-left: 40px;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.intro {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+section {
+  margin-bottom: 25px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 1.7;
+}
