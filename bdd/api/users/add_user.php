@@ -27,7 +27,7 @@ $query->execute([
     ':password_hash' => $passwordHash,
     ':adresse' => $data['adresse'],
     ':id_client' => $data['id_client']
-]);
+]);  //Déplacer dans UserManager.php
 
 header('Content-Type: application/json');
 http_response_code(201);

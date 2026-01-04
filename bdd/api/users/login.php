@@ -28,7 +28,7 @@ $client = $query->fetch(PDO::FETCH_ASSOC);
 if (!$client) {
     header('Content-Type: application/json');
     http_response_code(401);
-    echo json_encode(['error' => 'Email ou mot de passe incorrect']);
+    echo json_encode(['error' => 'le client n\'existe pas dans la base de données']);
     exit;
 }
 
@@ -43,7 +43,7 @@ if (!password_verify($motDePasse, $client['mot_de_passe'])) {
 else {
     $token = bin2hex(random_bytes(32)); //64 caractères sécurisés
 
-    // Stocker le token dans la colonne `api_token` du client
+    // Stocker le token dans la colonne 'api_token' du client
     $sqlUpdate = "UPDATE client SET api_token = :token WHERE id_client = :id_client";
     $updateStmt = $pdo->prepare($sqlUpdate);
     $updated = $updateStmt->execute([

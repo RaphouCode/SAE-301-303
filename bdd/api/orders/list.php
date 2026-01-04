@@ -1,4 +1,5 @@
 <?php
+    require_once '../boxes/index.php'; 
     $headers = getallheaders();
     $token = str_replace('Bearer ', '', $headers['Authorization']);
 
