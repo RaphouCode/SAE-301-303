@@ -1,1 +1,133 @@
-/* cgu-feature styles */
+// Fonts are loaded globally or via styles.scss usually, but we can include local imports if needed.
+// Assuming fonts are in assets/fonts/
+
+// HEADER & FOOTER are handled by components, we only style the content here.
+
+:host {
+    display: block;
+    background-color: #f6e9ef;
+    font-family: 'Abhaya Libre', serif;
+    color: #000;
+    min-height: 100vh;
+}
+
+/* NAVBAR Styles (Ported for reference, but HeaderComponent handles most. 
+   If we use custom navbar inside this component as per HTML:) */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background-color: #f6e9ef;
+    // box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); // Header component usually has this
+}
+
+.navbar-logo img {
+    height: 60px;
+}
+
+.navbar-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 15px;
+
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+}
+
+.navbar-icons {
+    display: flex;
+    align-items: center;
+
+    img {
+        height: 20px;
+        margin-left: 20px;
+        cursor: pointer;
+    }
+}
+
+/* BREADCRUMB */
+.breadcrumb {
+    font-size: 14px;
+    padding: 10px 40px;
+
+    a {
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+/* CONTENT */
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-bottom: 60px;
+}
+
+h1 {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 32px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    margin-top: 40px;
+}
+
+.intro {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+section {
+    margin-bottom: 25px;
+}
+
+h2 {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+p {
+    font-family: 'Abhaya Libre', serif;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+strong {
+    font-weight: 700;
+}
+
+// Media Queries for Responsiveness
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px 20px;
+    }
+
+    .navbar-menu {
+        display: none; // Hamburger handling usually needed
+    }
+
+    .container {
+        padding: 20px;
+    }
+}
