@@ -1,1 +1,33 @@
-/* about-feature styles */
+.about-page {
+    padding: 40px 0 60px; // Padding top réduit car breadcrumb
+    background-color: #FFF5F7; // Fond rose pâle comme Team
+    min-height: 80vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.breadcrumb {
+    font-size: 0.9rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+
+    .current {
+        font-weight: 700;
+        color: #000;
+    }
+}
+
+.page-title {
+    text-align: center;
+    font-family: serif;
+    color: #4A154B;
+    font-size: 3rem;
+    margin-bottom: 80px;
+    font-weight: 700;
+}

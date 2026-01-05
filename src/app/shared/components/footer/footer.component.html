@@ -1,3 +1,43 @@
 <footer>
-    <p>footer works!</p>
+    <div class="footer-content">
+        <!-- Colonne Gauche : Logo & Infos -->
+        <div class="col-infos">
+            <div class="logo-wrapper">
+                <!-- Chemin correct après config angular.json -->
+                <img src="assets/images/sushimi-logo.png" alt="Sushimi Logo" class="footer-logo">
+            </div>
+
+            <div class="contact-info">
+                <h3>Venez nous rendre visite</h3>
+                <p>12 Rue de la Paix, 75002 Paris</p>
+                <p>+ 33 1 23 45 67 89</p>
+            </div>
+
+            <div class="links">
+                <a routerLink="/contact">Contactez-nous</a>
+                <a routerLink="/cgu">Politique de confidentialité</a>
+            </div>
+        </div>
+
+        <!-- Colonne Centre : Horaires -->
+        <div class="col-hours">
+            <div class="hours-block">
+                <h3>Lundi - Mardi</h3>
+                <p>11h30 - 14h30 / 18h00 - 22h30</p>
+            </div>
+
+            <div class="hours-block">
+                <h3>Vendredi - Dimanche</h3>
+                <p>11h30 - 14h30 / 18h00 - 23h00</p>
+            </div>
+
+            <p class="copyright">Sushimi, {{ currentYear }}.</p>
+        </div>
+
+        <!-- Colonne Droite : Image / Map -->
+        <div class="col-map">
+            <!-- Chemin correct -->
+            <img src="assets/images/image.png" alt="Plan" class="map-image">
+        </div>
+    </div>
 </footer>

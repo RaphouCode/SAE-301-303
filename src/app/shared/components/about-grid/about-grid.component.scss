@@ -1,0 +1,70 @@
+.items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+.about-item {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .image-wrapper {
+        flex: 1;
+        overflow: hidden;
+        border-radius: 4px; // Léger arrondi ?
+
+        img {
+            width: 100%;
+            height: 300px; // Hauteur fixe rectangulaire
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+
+            &:hover {
+                transform: scale(1.02);
+            }
+        }
+    }
+
+    .content {
+        flex: 1;
+
+        h2 {
+            font-family: 'Inter', sans-serif; // Ou police grasse sans serif selon image
+            font-weight: 700;
+            color: #000;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            color: #333;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+    }
+
+    // Reverse pour l'alternance (Texte Gauche / Image Droite)
+    // Par défaut: Image Gauche / Texte Droite
+    &.reverse {
+        flex-direction: row-reverse;
+    }
+
+    // Mobile
+    @media (max-width: 768px) {
+        flex-direction: column !important;
+        gap: 30px;
+        text-align: center;
+
+        .image-wrapper {
+            width: 100%;
+
+            img {
+                height: 250px;
+            }
+        }
+    }
+}
