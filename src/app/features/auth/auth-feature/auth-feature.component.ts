@@ -1,14 +1,14 @@
 import { Component } from '@angular/core';
+import { LoginFormComponent } from '../../../../shared/components/login-form/login-form.component';
+import { RegisterFormComponent } from '../../../../shared/components/register-form/register-form.component';
 
 @Component({
     selector: 'app-auth-feature',
     standalone: true,
-    imports: [],
+    imports: [LoginFormComponent, RegisterFormComponent],
     templateUrl: './auth-feature.component.html',
     styleUrl: './auth-feature.component.scss'
 })
 export class AuthFeatureComponent {
-    // Smart Component - Authentification
-    // Gère les routes /login et /register
-    // Composants enfants : LoginForm, RegisterForm
+    // Smart Component - Gestion Auth
 }

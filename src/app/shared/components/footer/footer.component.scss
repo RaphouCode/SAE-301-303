@@ -1,100 +1,159 @@
 footer {
-    background-color: #4A154B; // Couleur violet foncé de la maquette infos1.png (bas)
+    background-color: #4A154B;
     color: #FFFFFF;
-    font-family: 'Inter', sans-serif;
-    overflow: hidden; // Pour l'image map qui peut dépasser
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
 }
 
-.footer-content {
+.footer-layout {
     display: flex;
     flex-wrap: wrap;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-// Colonne Gauche et Centre partagent un espace padded
-.col-infos,
-.col-hours {
+.footer-text-content {
     flex: 1;
-    padding: 60px 40px;
-    min-width: 300px;
+    min-width: 600px;
+    padding: 15px 40px;
+    margin-bottom: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
 }
 
-// Colonne Droite (Map) prend la place restante et colle au bord
+.col-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.col-hours {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .col-map {
-    flex: 1.5;
-    min-width: 300px;
+    width: 40%;
+    flex-shrink: 0;
     position: relative;
+    min-width: 300px;
 
     .map-image {
+        max-width: 640px;
+        min-height: 379px;
         width: 100%;
         height: 100%;
         object-fit: cover;
         display: block;
-        // Assurer qu'elle remplit bien la div
-        min-height: 300px;
     }
 }
 
 .logo-wrapper {
-    margin-bottom: 30px;
+    grid-column: 1 / -1;
+    display: flex;
+    margin-bottom: 2rem;
 
     .footer-logo {
-        height: 60px; // Ajuster selon besoin
+        height: 113px;
         object-fit: contain;
     }
 }
 
-h3 {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    color: #FFFFFF;
-}
-
-p,
-a {
-    font-size: 0.9rem;
-    line-height: 1.6;
-    color: #FFFFFF;
-    margin-bottom: 5px;
-    text-decoration: none;
-    display: block;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
 .contact-info {
-    margin-bottom: 30px;
-}
-
-.hours-block {
-    margin-bottom: 40px;
+    margin-bottom: 2rem;
 }
 
 .links {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1.5rem;
+    margin-top: auto;
+
+    a {
+        text-decoration: underline;
+        font-weight: 600;
+    }
+}
+
+.hours-block {
+    margin-bottom: 2rem;
 }
 
 .copyright {
     margin-top: auto;
-    opacity: 0.8;
-    font-size: 0.8rem;
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+// Typography
+h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0%;
+    margin-bottom: 0.5rem;
+    color: #FFFFFF;
+}
+
+p,
+a {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 0%;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 0;
 }
 
 // Responsive
-@media (max-width: 768px) {
-    .footer-content {
+@media (max-width: 1024px) {
+    .footer-layout {
         flex-direction: column;
     }
 
+    .footer-text-content {
+        width: 100%;
+        min-width: auto;
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+        gap: 30px;
+    }
+
     .col-map {
-        order: -1; // Mettre la map en haut ou bas ? Bas par défaut.
-        height: 200px;
-        flex: none;
+        width: 100%;
+        height: 300px;
+        order: 1; // Map at bottom
+        min-width: auto;
+    }
+
+    .map-image {
+        display: block; // Show map
+        min-height: auto;
+    }
+
+    .logo-wrapper {
+        justify-content: center;
+        margin-bottom: 20px;
+
+        .footer-logo {
+            height: 80px;
+        }
+    }
+
+    .col-infos,
+    .col-hours {
+        text-align: center;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .links {
+        align-items: center;
     }
 }

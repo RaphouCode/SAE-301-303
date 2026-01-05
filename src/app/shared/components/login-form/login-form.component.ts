@@ -1,9 +1,4 @@
-import { Component, output } from '@angular/core';
-
-export interface LoginData {
-    email: string;
-    password: string;
-}
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-login-form',
@@ -13,8 +8,5 @@ export interface LoginData {
     styleUrl: './login-form.component.scss'
 })
 export class LoginFormComponent {
-    // Dumb Component - Formulaire connexion
-    // Email / Mot de passe
-
-    submitLogin = output<LoginData>();
+    // Dumb Component - Connexion
 }

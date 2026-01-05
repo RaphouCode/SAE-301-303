@@ -1,42 +1,44 @@
 <footer>
-    <div class="footer-content">
-        <!-- Colonne Gauche : Logo & Infos -->
-        <div class="col-infos">
+    <div class="footer-layout">
+        <!-- Partie Textuelle : Grid 2 colonnes -->
+        <div class="footer-text-content">
+            <!-- Row 1: Logo (Span 2) -->
             <div class="logo-wrapper">
-                <!-- Chemin correct après config angular.json -->
                 <img src="assets/images/sushimi-logo.png" alt="Sushimi Logo" class="footer-logo">
             </div>
 
-            <div class="contact-info">
-                <h3>Venez nous rendre visite</h3>
-                <p>12 Rue de la Paix, 75002 Paris</p>
-                <p>+ 33 1 23 45 67 89</p>
+            <!-- Colonne Gauche : Infos & Liens -->
+            <div class="col-infos">
+                <div class="contact-info">
+                    <h3>Venez nous rendre visite</h3>
+                    <p>12 Rue de la Paix, 75002 Paris</p>
+                    <p>+ 33 1 23 45 67 89</p>
+                </div>
+
+                <div class="links">
+                    <a routerLink="/contact">Contacter nous</a>
+                    <a routerLink="/cgu">Politique de confidentialité</a>
+                </div>
             </div>
 
-            <div class="links">
-                <a routerLink="/contact">Contactez-nous</a>
-                <a routerLink="/cgu">Politique de confidentialité</a>
+            <!-- Colonne Droite : Horaires -->
+            <div class="col-hours">
+                <div class="hours-block">
+                    <h3>Lundi - Mardi</h3>
+                    <p>11h30 - 14h30 / 18h00 - 22h30</p>
+                </div>
+
+                <div class="hours-block">
+                    <h3>Vendredi - Dimanche</h3>
+                    <p>11h30 - 14h30 / 18h00 - 23h00</p>
+                </div>
+
+                <p class="copyright">Sushimi, 2025.</p>
             </div>
         </div>
 
-        <!-- Colonne Centre : Horaires -->
-        <div class="col-hours">
-            <div class="hours-block">
-                <h3>Lundi - Mardi</h3>
-                <p>11h30 - 14h30 / 18h00 - 22h30</p>
-            </div>
-
-            <div class="hours-block">
-                <h3>Vendredi - Dimanche</h3>
-                <p>11h30 - 14h30 / 18h00 - 23h00</p>
-            </div>
-
-            <p class="copyright">Sushimi, {{ currentYear }}.</p>
-        </div>
-
-        <!-- Colonne Droite : Image / Map -->
+        <!-- Partie Image Map : À droite complètement -->
         <div class="col-map">
-            <!-- Chemin correct -->
             <img src="assets/images/image.png" alt="Plan" class="map-image">
         </div>
     </div>

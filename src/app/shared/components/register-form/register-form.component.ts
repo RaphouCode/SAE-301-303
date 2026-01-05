@@ -1,12 +1,4 @@
-import { Component, output } from '@angular/core';
-
-export interface RegisterData {
-    firstName: string;
-    lastName: string;
-    email: string;
-    password: string;
-    confirmPassword: string;
-}
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-register-form',
@@ -16,8 +8,5 @@ export interface RegisterData {
     styleUrl: './register-form.component.scss'
 })
 export class RegisterFormComponent {
-    // Dumb Component - Formulaire inscription
-    // Nom, Prénom, Email, Mot de passe, Confirmation
-
-    submitRegister = output<RegisterData>();
+    // Dumb Component - Inscription
 }
