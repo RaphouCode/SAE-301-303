@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core'; // <--- 1. AJOUT ICI
+import { Component, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
     FormBuilder,
@@ -20,7 +20,6 @@ export class LoginFormComponent {
     form: FormGroup;
     message: string = '';
 
-    // <--- 2. AJOUT ICI : L'événement pour prévenir le parent
     @Output() switchToRegister = new EventEmitter<void>();
 
     constructor(
@@ -34,7 +33,6 @@ export class LoginFormComponent {
         });
     }
 
-    // <--- 3. AJOUT ICI : La fonction appelée quand on clique sur "S'inscrire"
     onRegisterClick(event: Event) {
         event.preventDefault(); // Empêche le rechargement de la page
         this.switchToRegister.emit(); // Envoie le signal au parent (AuthFeature)
