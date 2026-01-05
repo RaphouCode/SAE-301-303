@@ -1,3 +1,5 @@
+@import '../../../../variables';
+
 .hero-banner {
     position: relative;
     height: 60vh;
@@ -37,17 +39,19 @@
 
         h1 {
             font-size: 3.5rem;
-            font-family: 'Noto Serif JP', serif; // Assuming a nice font
+            font-family: $font-heading;
             font-weight: 700;
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 2px;
+            color: #FFFFFF; // Fix: Explicitly white to override global H1 purple
         }
 
         p {
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto;
+            color: #FFFFFF; // Ensure text is white
         }
     }
 }

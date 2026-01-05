@@ -1,7 +1,10 @@
 <section class="procuct-detail-page">
     <div class="breadcrumb">
-        <a routerLink="/">Accueil</a> > <a routerLink="/boxes">Menu</a> > <span>{{ box()?.nom || 'Chargement...'
-            }}</span>
+        <a routerLink="/">Accueil</a>
+        <span class="separator">></span>
+        <a routerLink="/boxes">Menu</a>
+        <span class="separator">></span>
+        <span>{{ box()?.nom || 'Chargement...' }}</span>
     </div>
 
     @if (loading()) {

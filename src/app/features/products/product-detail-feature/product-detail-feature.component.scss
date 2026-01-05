@@ -1,32 +1,16 @@
+@import '../../../../variables';
+
 .procuct-detail-page {
-    background-color: #FFF0F5; // Rose pâle
+    background-color: $color-bg-page; // Rose pâle
     min-height: 100vh;
     padding: 20px;
     padding-bottom: 80px;
-    font-family: 'Roboto', sans-serif;
 }
 
-.breadcrumb {
-    max-width: 1200px;
-    margin: 0 auto 40px auto;
-    font-size: 0.9rem;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-
-    a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 600;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
+// .breadcrumb defined globally
 
 .product-container {
-    max-width: 1200px;
+    max-width: $container-max-width;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr; // 2 colonnes 50/50
@@ -39,7 +23,7 @@
 }
 
 .image-column {
-    background: white;
+    background: $color-bg-white;
     border-radius: 12px;
     padding: 40px;
     display: flex;
@@ -56,29 +40,25 @@
 
 .info-column {
     h1 {
-        font-family: 'Noto Serif JP', serif;
         font-size: 2.5rem;
-        color: #4A154B; // Violet
         margin-bottom: 10px;
     }
 
     .pieces {
         font-size: 1rem;
-        color: #666;
+        color: $color-text-light;
         margin-bottom: 20px;
     }
 
     .price {
         font-size: 1.8rem;
         font-weight: 700;
-        color: #333;
+        color: $color-text;
         margin-bottom: 30px;
     }
 
     h3,
     h4 {
-        font-family: 'Noto Serif JP', serif;
-        color: #4A154B;
         margin-bottom: 10px;
     }
 
@@ -92,8 +72,8 @@
         grid-template-columns: 1fr 1fr;
         gap: 20px;
         margin-bottom: 40px;
-        border-top: 1px solid #ddd;
-        border-bottom: 1px solid #ddd;
+        border-top: 1px solid $color-border;
+        border-bottom: 1px solid $color-border;
         padding: 20px 0;
 
         ul {
@@ -102,7 +82,7 @@
 
             li {
                 margin-bottom: 5px;
-                color: #555;
+                color: lighten($color-text, 20%);
             }
         }
     }
@@ -125,7 +105,7 @@
                 padding: 10px 15px;
                 font-size: 1.2rem;
                 cursor: pointer;
-                color: #4A154B;
+                color: $color-primary;
 
                 &:hover {
                     background-color: #f9f9f9;
@@ -141,7 +121,7 @@
         }
 
         .btn-add {
-            background-color: #4A154B;
+            background-color: $color-primary;
             color: white;
             border: none;
             padding: 0 30px;
@@ -155,7 +135,7 @@
             max-width: 300px;
 
             &:hover {
-                background-color: lighten(#4A154B, 10%);
+                background-color: $color-primary-light;
             }
         }
     }

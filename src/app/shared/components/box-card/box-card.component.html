@@ -1,5 +1,5 @@
 <div class="box-card">
-    <div class="image-container">
+    <div class="image-container" [routerLink]="['/boxes', box().id_box]" style="cursor: pointer;">
         <!-- Placeholder ou image réelle (les images de la BDD pointeront vers des fichiers à ajouter plus tard) -->
         <img [src]="box().image" [alt]="box().nom" class="box-image"
             onerror="this.src='/assets/images/sushimi-logo.png'">
@@ -7,7 +7,7 @@
     </div>
 
     <div class="box-content">
-        <h3 class="box-title">{{ box().nom }}</h3>
+        <h3 class="box-title" [routerLink]="['/boxes', box().id_box]" style="cursor: pointer;">{{ box().nom }}</h3>
         <p class="box-price">{{ box().prix | number:'1.2-2' }} €</p>
 
         <button class="btn-reserver" (click)="onAdd()">Réserver</button>
