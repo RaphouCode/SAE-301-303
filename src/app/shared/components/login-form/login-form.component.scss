@@ -1,1 +1,128 @@
-// Styles Connexion vides
+// --- Variables basées sur ton image ---
+$bg-color: #fff5f9; // Fond rose très pâle
+$primary-color: #3e1238; // Le violet "Aubergine" foncé du bouton/titre
+$text-color: #000000;
+$input-border: #888; // Gris pour les bordures
+$radius: 8px; // Arrondi des coins
+
+// Polices (approximatives selon l'image)
+$font-serif: "Times New Roman", serif; // Pour le titre et le bouton
+$font-sans: "Arial", sans-serif; // Pour les labels
+
+:host {
+  display: block;
+  background-color: $bg-color;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  width: 100%;
+  max-width: 450px; // Largeur contenue comme sur l'image
+  padding: 20px;
+  text-align: center;
+}
+
+// --- Typographie ---
+.title {
+  font-family: $font-serif;
+  color: $primary-color;
+  font-size: 3rem; // Très grand comme sur l'image
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-family: $font-sans;
+  font-size: 1rem;
+  margin-bottom: 40px;
+  font-weight: bold;
+
+  a {
+    color: $primary-color;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+// --- Formulaire ---
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; // Espacement entre les blocs
+  text-align: left; // Les labels sont alignés à gauche
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-family: $font-serif; // Les labels semblent être en serif ou gras sur l'image
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: black;
+  }
+
+  input {
+    padding: 12px;
+    border: 1px solid $input-border;
+    border-radius: $radius;
+    font-size: 1rem;
+    background-color: white;
+    outline: none;
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 1px $primary-color;
+    }
+  }
+
+  .forgot-pwd {
+    align-self: flex-start; // Calé à gauche
+    margin-top: 8px;
+    font-family: $font-sans;
+    font-size: 0.9rem;
+    color: $primary-color;
+    text-decoration: underline;
+  }
+}
+
+// --- Bouton ---
+.submit-btn {
+  background-color: $primary-color;
+  color: white;
+  font-family: $font-serif; // Police Serif sur le bouton
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 15px;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 100%; // Prend toute la largeur
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+}
+
+// --- Erreur ---
+.error-msg {
+  margin-top: 20px;
+  color: red;
+  font-weight: bold;
+  border: 1px solid red;
+  padding: 10px;
+  border-radius: $radius;
+  background: white;
+}

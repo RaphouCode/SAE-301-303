@@ -1,2 +1,31 @@
-<!-- Formulaire Connexion Vide -->
-<p>Formulaire Connexion</p>
+<div class="login-wrapper">
+  <div class="login-container">
+    <h2 class="title">Se connecter</h2>
+
+    <p class="subtitle">
+      Vous ne possedez pas de compte ?
+      <a href="#" (click)="onRegisterClick($event)">S’inscrire</a>
+    </p>
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input type="email" id="email" formControlName="email" />
+      </div>
+
+      <div class="form-group">
+        <label for="mdp">Mot de passe</label>
+        <input type="password" id="mdp" formControlName="mot_de_passe" />
+
+        <a href="#" class="forgot-pwd">Mot de passe oublié ?</a>
+      </div>
+
+      <button type="submit" [disabled]="form.invalid" class="submit-btn">
+        Se connecter
+      </button>
+    </form>
+
+    <div *ngIf="message" class="error-msg">
+      {{ message }}
+    </div>
+  </div>
+</div>

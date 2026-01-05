@@ -1,6 +1,7 @@
 <section>
-  <h1>Authentification</h1>
-  <app-login-form />
-  <!-- <app-register-form /> -->
-  <app-register-form></app-register-form>
+  <app-login-form *ngIf="isLoginMode" (switchToRegister)="toggleView()">
+  </app-login-form>
+
+  <app-register-form *ngIf="!isLoginMode" (switchToLogin)="toggleView()">
+  </app-register-form>
 </section>

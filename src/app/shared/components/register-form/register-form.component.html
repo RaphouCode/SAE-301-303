@@ -7,7 +7,8 @@
     <h2 class="title">S’inscrire</h2>
 
     <p class="subtitle">
-      Vous ne possedez déjà un compte ? <a href="#">Se connecter</a>
+      Vous possedez déjà un compte ?
+      <a href="#" (click)="onLoginClick($event)">Se connecter</a>
     </p>
 
     <form [formGroup]="form" (ngSubmit)="submit()">

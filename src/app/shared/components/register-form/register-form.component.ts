@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core'; // <--- 1. Import Output/Event
+import { CommonModule } from '@angular/common';
 import {
   FormBuilder,
   FormGroup,
@@ -6,7 +7,6 @@ import {
   ReactiveFormsModule,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register-form',
@@ -20,8 +20,10 @@ export class RegisterFormComponent {
   message: string = '';
   isError: boolean = false;
 
+  // <--- 2. Création de l'événement vers le parent
+  @Output() switchToLogin = new EventEmitter<void>();
+
   constructor(private fb: FormBuilder, private http: HttpClient) {
-    // Formulaire avec les clés que le PHP attend
     this.form = this.fb.group({
       prenom: ['', Validators.required],
       nom: ['', Validators.required],
@@ -31,30 +33,36 @@ export class RegisterFormComponent {
     });
   }
 
+  // <--- 3. Fonction déclenchée au clic sur "Se connecter"
+  onLoginClick(event: Event) {
+    event.preventDefault(); // Empêche le lien de recharger la page
+    this.switchToLogin.emit(); // Dit au parent : "Affiche le login !"
+  }
+
   submit() {
     if (this.form.invalid) {
       return;
     }
 
-    // Récupération des données du formulaire
     const userData = this.form.value;
-
-    // Chemin vers le script PHP
+    // Vérifie bien que ce chemin est le bon sur ton PC
     const apiUrl = 'http://localhost/SAE-301-303/bdd/api/users/add_user.php';
 
     this.http.post(apiUrl, userData).subscribe({
       next: (response: any) => {
         console.log('Succès:', response);
-        this.message = 'Inscription réussie ! Vous pouvez vous connecter.';
+        this.message =
+          'Inscription réussie ! Vous pouvez maintenant vous connecter.';
         this.isError = false;
         this.form.reset();
+
+        // Optionnel : Tu pourrais aussi rediriger automatiquement vers le login après 2 secondes
+        // setTimeout(() => this.switchToLogin.emit(), 2000);
       },
       error: (err) => {
         console.error('Erreur:', err);
         this.isError = true;
-        // Message d'erreur envoyé par le PHP
-        // Si y'a pas de message précis
-        this.message = err.error?.error || 'Erreur de connexion au serveur.';
+        this.message = err.error?.error || "Erreur lors de l'inscription.";
       },
     });
   }
