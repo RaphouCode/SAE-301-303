@@ -1,0 +1,43 @@
+.values-section {
+    padding: 5rem 2rem;
+    background-color: white;
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .values-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 3rem;
+        text-align: center;
+    }
+
+    .value-card {
+        padding: 2rem;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: translateY(-10px);
+        }
+
+        .icon-wrapper {
+            font-size: 3rem;
+            color: var(--primary-color, #d32f2f);
+            margin-bottom: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-family: 'Noto Serif JP', serif;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.5;
+        }
+    }
+}

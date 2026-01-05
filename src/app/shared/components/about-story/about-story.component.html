@@ -1,0 +1,13 @@
+<section class="story-section">
+    <div class="container">
+        <div class="content">
+            <h2>{{ title() }}</h2>
+            @for (paragraph of description(); track $index) {
+            <p>{{ paragraph }}</p>
+            }
+        </div>
+        <div class="image-wrapper">
+            <img [ngSrc]="image()" width="600" height="400" alt="About Story Image" />
+        </div>
+    </div>
+</section>

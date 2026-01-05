@@ -1,0 +1,12 @@
+<section class="hero-banner">
+    <div class="hero-background">
+        <img [ngSrc]="backgroundImage()" fill priority alt="Hero background" />
+        <div class="overlay"></div>
+    </div>
+    <div class="hero-content">
+        <h1>{{ title() }}</h1>
+        @if (subtitle()) {
+        <p>{{ subtitle() }}</p>
+        }
+    </div>
+</section>

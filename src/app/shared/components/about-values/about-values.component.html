@@ -1,0 +1,15 @@
+<section class="values-section">
+    <div class="container">
+        <div class="values-grid">
+            @for (value of values(); track value.title) {
+            <div class="value-card">
+                <div class="icon-wrapper">
+                    <i [class]="value.icon"></i>
+                </div>
+                <h3>{{ value.title }}</h3>
+                <p>{{ value.description }}</p>
+            </div>
+            }
+        </div>
+    </div>
+</section>

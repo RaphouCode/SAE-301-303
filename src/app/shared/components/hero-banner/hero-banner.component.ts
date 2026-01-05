@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { NgOptimizedImage } from '@angular/common';
 
 @Component({
     selector: 'app-hero-banner',
     standalone: true,
-    imports: [],
+    imports: [NgOptimizedImage],
     templateUrl: './hero-banner.component.html',
     styleUrl: './hero-banner.component.scss'
 })
 export class HeroBannerComponent {
-    // Dumb Component - Section héro de l'accueil
-    // Affiche l'image principale et le message "SUSHI"
-    // Utiliser NgOptimizedImage avec priority pour LCP optimisé
+    title = input.required<string>();
+    subtitle = input<string>();
+    backgroundImage = input.required<string>();
 }
