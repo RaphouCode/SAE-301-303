@@ -3,7 +3,7 @@
     <!-- Alternance Zig-Zag -->
     <!-- i pair (0, 2) : Image Gauche / Texte Droite -->
     <!-- i impair (1, 3) : Texte Gauche / Image Droite -->
-    <div class="about-item" [class.reverse]="i % 2 !== 0">
+    <div #aboutItem class="about-item" [class.reverse]="i % 2 !== 0">
 
         <div class="image-wrapper">
             <img [src]="item.image" [alt]="item.title" />

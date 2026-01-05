@@ -4,7 +4,7 @@
         <div class="footer-text-content">
             <!-- Row 1: Logo (Span 2) -->
             <div class="logo-wrapper">
-                <img src="assets/images/sushimi-logo.png" alt="Sushimi Logo" class="footer-logo">
+                <img src="/assets/images/sushimi-logo.png" alt="Sushimi Logo" class="footer-logo">
             </div>
 
             <!-- Colonne Gauche : Infos & Liens -->
@@ -16,8 +16,8 @@
                 </div>
 
                 <div class="links">
-                    <a routerLink="/contact" (click)="scrollToTop()">Contacter nous</a>
-                    <a routerLink="/cgu" (click)="scrollToTop()">Politique de confidentialité</a>
+                    <a routerLink="/contact" (click)="navigateAndScrollToTop('/contact')">Contacter nous</a>
+                    <a routerLink="/cgu" (click)="navigateAndScrollToTop('/cgu')">Politique de confidentialité</a>
                 </div>
             </div>
 
@@ -39,7 +39,7 @@
 
         <!-- Partie Image Map : À droite complètement -->
         <div class="col-map">
-            <img src="assets/images/image.png" alt="Plan" class="map-image">
+            <img src="/assets/images/image.png" alt="Plan" class="map-image">
         </div>
     </div>
 </footer>

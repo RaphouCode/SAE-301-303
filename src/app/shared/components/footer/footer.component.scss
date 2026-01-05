@@ -74,6 +74,18 @@ footer {
     a {
         text-decoration: underline;
         font-weight: 600;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        cursor: pointer;
+        display: inline-block;
+
+        &:hover {
+            transform: translateX(5px);
+            opacity: 0.8;
+        }
+
+        &:active {
+            transform: translateX(2px);
+        }
     }
 }
 
@@ -155,5 +167,53 @@ a {
 
     .links {
         align-items: center;
+    }
+}
+
+// Mobile
+@media (max-width: 768px) {
+    .footer-text-content {
+        padding: 30px 15px;
+        gap: 25px;
+    }
+
+    .col-map {
+        height: 250px;
+    }
+
+    .footer-logo {
+        height: 60px;
+    }
+
+    h3 {
+        font-size: 1.1rem;
+    }
+
+    p, a {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-text-content {
+        padding: 25px 10px;
+        gap: 20px;
+    }
+
+    .col-map {
+        height: 200px;
+    }
+
+    .footer-logo {
+        height: 50px;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+
+    p, a {
+        font-size: 12px;
+        line-height: 22px;
     }
 }

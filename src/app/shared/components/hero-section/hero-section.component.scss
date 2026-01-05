@@ -1,6 +1,6 @@
 .hero-section {
   position: relative;
-  background: #FFE5E5;
+  background: #FFF2FB;
   padding: 80px 0;
   overflow: hidden;
 
@@ -41,12 +41,9 @@
       line-height: 1.1;
       text-align: center;
       position: relative;
-      // Combined Entrance (Bounce) + Continuous (Float)
-      // Note: CSS animation combining needs careful syntax, but 'both' usually handles the end state.
-      // To loop, we'll separate the container or use a wrapper, but simpler here: just float.
-      // actually, user wants "animé" -> Float.
-      animation: bounceIn 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both, titleFloat 6s ease-in-out infinite 1.5s;
-      text-shadow: 0 20px 30px rgba(74, 44, 90, 0.2);
+      // Combined Entrance (Bounce) + Continuous (Float) + Rose light effect
+      animation: bounceIn 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both, titleFloat 6s ease-in-out infinite 1.5s, titleRoseLight 3s ease-in-out infinite 2s;
+      transition: transform 0.3s ease;
     }
 
     .logo-container {
@@ -222,6 +219,26 @@
   // Gentle float with slight tilt
 }
 
+@keyframes titleRoseLight {
+  0%, 100% {
+    text-shadow: 
+      0 0 20px rgba(255, 242, 251, 0.8),
+      0 0 40px rgba(255, 242, 251, 0.6),
+      0 0 60px rgba(255, 242, 251, 0.4),
+      0 0 80px rgba(255, 242, 251, 0.3),
+      0 0 100px rgba(255, 242, 251, 0.2);
+  }
+
+  50% {
+    text-shadow: 
+      0 0 30px rgba(255, 242, 251, 1),
+      0 0 60px rgba(255, 242, 251, 0.8),
+      0 0 90px rgba(255, 242, 251, 0.6),
+      0 0 120px rgba(255, 242, 251, 0.4),
+      0 0 150px rgba(255, 242, 251, 0.3);
+  }
+}
+
 @keyframes titleReveal {
 
   // Keeping original logic just in case, but unused if bounceIn is active
@@ -301,6 +318,29 @@
 
     .gallery {
       gap: 15px;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 30px 0;
+
+    .container {
+      padding: 0 15px;
+    }
+
+    .branding .brand-name {
+      font-size: 3rem;
+    }
+
+    .branding .logo-container {
+      width: 300px;
+      height: 300px;
+    }
+
+    .gallery {
+      gap: 10px;
     }
   }
 }

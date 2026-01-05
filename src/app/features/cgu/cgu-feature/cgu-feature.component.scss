@@ -1,121 +1,134 @@
 :host {
     display: block;
-    background-color: #f6e9ef;
+    background-color: #FFF2FB;
     font-family: 'Abhaya Libre', serif;
     color: #000;
     min-height: 100vh;
 }
 
-.navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 40px;
-    background-color: #f6e9ef;
-}
-
-.navbar-logo img {
-    height: 60px;
-}
-
-.navbar-menu {
-    display: flex;
-    list-style: none;
-    gap: 30px;
-    margin: 0;
-    padding: 0;
-
-    a {
-        text-decoration: none;
-        color: black;
-        font-size: 15px;
-
-        &:hover {
-            opacity: 0.6;
-        }
-    }
-}
-
-.navbar-icons {
-    display: flex;
-    align-items: center;
-
-    img {
-        height: 20px;
-        margin-left: 20px;
-        cursor: pointer;
-    }
-}
-
+/* BREADCRUMB */
 .breadcrumb {
     font-size: 14px;
-    padding: 10px 40px;
+    padding: 20px 40px 10px;
+    text-align: center;
 
-    a {
-        text-decoration: none;
-        color: inherit;
-
-        &:hover {
-            text-decoration: underline;
-        }
+    .current {
+        font-weight: 700;
     }
 }
 
 .container {
-    max-width: 800px;
-    margin: auto;
-    padding-right: 40px;
-    padding-left: 40px;
-    padding-bottom: 60px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+    text-align: center;
 }
 
 h1 {
     font-family: 'Abhaya Libre', serif;
-    font-size: 32px;
-    margin-bottom: 20px;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
     font-weight: 700;
-    margin-top: 40px;
+    margin-top: 20px;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInDown 0.8s ease-out forwards;
 }
 
 .intro {
     font-family: 'Abhaya Libre', serif;
-    font-size: 18px;
-    line-height: 1.6;
-    margin-bottom: 30px;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.8s ease-out 0.2s forwards;
 }
 
 section {
-    margin-bottom: 25px;
-}
+    margin-bottom: 40px;
+    text-align: left;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 
-h2 {
-    font-family: 'Abhaya Libre', serif;
-    font-size: 20px;
-    margin-bottom: 8px;
-    font-weight: 700;
-}
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-p {
-    font-family: 'Abhaya Libre', serif;
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 0;
+    h2 {
+        font-family: 'Abhaya Libre', serif;
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        font-weight: 700;
+        text-align: center;
+        color: #4A154B;
+    }
+
+    p {
+        font-family: 'Abhaya Libre', serif;
+        font-size: 1rem;
+        line-height: 1.8;
+        margin: 0;
+        text-align: justify;
+    }
 }
 
 strong {
     font-weight: 700;
 }
 
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// Media Queries for Responsiveness
 @media (max-width: 768px) {
-    .navbar {
-        padding: 10px 20px;
-    }
-
-    .navbar-menu {
-        display: none; // Hamburger handling usually needed
-    }
-
     .container {
         padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .intro {
+        font-size: 1rem;
+    }
+
+    section {
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        p {
+            font-size: 0.95rem;
+            text-align: left;
+        }
     }
 }

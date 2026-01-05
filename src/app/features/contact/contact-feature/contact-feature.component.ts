@@ -10,7 +10,7 @@ import { ContactFormComponent, ContactFormData } from '../../../shared/component
 })
 export class ContactFeatureComponent {
     // Placeholder image that closely matches the "Sushi on slate" design
-    heroImage = 'assets/images/sushi-5364661_1280.png';
+    heroImage = '/assets/images/sushi-5364661_1280.png';
 
     handleContactSubmit(data: ContactFormData) {
         console.log('Formulaire de contact soumis:', data);

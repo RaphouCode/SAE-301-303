@@ -15,21 +15,21 @@ export class TeamFeatureComponent {
             id: '1',
             name: 'Kazuki Mori',
             role: 'Chef Exécutif',
-            image: 'assets/images/rafik-wahba-5quJ61cQU8A-unsplash 1.png',
+            image: '/assets/images/rafik-wahba-5quJ61cQU8A-unsplash 1.png',
             bio: "Kazuki Mori est un chef de sushi passionné, reconnu pour son savoir-faire et sa créativité. Chaque plat qu'il prépare reflète sa maîtrise des techniques traditionnelles tout en explorant des saveurs modernes. Son restaurant est le reflet de son engagement : offrir une expérience authentique et raffinée à chaque client."
         },
         {
             id: '2',
             name: 'Haruto Tanaka',
             role: 'Chef Sushi',
-            image: 'assets/images/gene-brutty-y08M9yyBRDY-unsplash 1.png',
+            image: '/assets/images/gene-brutty-y08M9yyBRDY-unsplash 1.png',
             bio: "Haruto Tanaka est un chef de sushi reconnu pour sa précision et son sens du détail. Chaque pièce qu'il crée allie tradition et élégance, mettant en valeur des ingrédients de première qualité. Son objectif est simple : offrir à chaque convive un moment unique et raffiné."
         },
         {
             id: '3',
             name: 'Ayumi Sato',
             role: 'Cheffe de Sushi',
-            image: 'assets/images/johnny-ho-IRekhZLIy6E-unsplash 1.png',
+            image: '/assets/images/johnny-ho-IRekhZLIy6E-unsplash 1.png',
             bio: "Ayumi Sato est une cheffe de sushi qui se distingue par sa créativité et son audace. Elle revisite les classiques avec des touches contemporaines, tout en respectant l'essence de la cuisine japonaise. Son restaurant est un lieu où chaque bouchée raconte une histoire."
         }
     ];

@@ -1,0 +1,14 @@
+main {
+  padding-top: 120px; // Compenser la hauteur de la navbar fixe (110px logo + padding réduit)
+  min-height: 100vh;
+
+  // Responsive padding adjustments
+  @media (max-width: 768px) {
+    padding-top: 140px; // More space on mobile due to nav wrapping
+  }
+
+  @media (max-width: 480px) {
+    padding-top: 130px;
+  }
+}
+
