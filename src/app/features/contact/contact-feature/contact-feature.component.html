@@ -1,1 +1,15 @@
-<p>contact-feature works!</p>
+<section class="contact-page">
+    <div class="split-layout">
+        <div class="image-side">
+            <img [src]="heroImage" alt="Sushi de qualité">
+        </div>
+        <div class="form-side">
+            <app-contact-form (submitForm)="handleContactSubmit($event)" />
+        </div>
+    </div>
+</section>
+
+<!-- Stay in touch section -->
+<div class="stay-in-touch-banner">
+    <h3>Stay in touch. Follow us on facebook and instagram</h3>
+</div>
