@@ -16,8 +16,5 @@ export interface TeamMember {
     styleUrl: './team-grid.component.scss'
 })
 export class TeamGridComponent {
-    // Dumb Component - Grille équipe
-    // Similaire à ProductGrid mais pour les profils des chefs
-    // (Kazaki Mori, etc.)
     members = input.required<TeamMember[]>();
 }

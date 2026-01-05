@@ -1,1 +1,34 @@
-<p>team-grid works!</p>
+<div class="chefs-list">
+    @for (member of members(); track member.id; let i = $index) {
+    <!-- Premier chef : Layout Centré (Image large au dessus, texte centré dessous) -->
+    @if (i === 0) {
+    <div class="chef-card featured">
+        <div class="image-wrapper">
+            <img [src]="member.image" [alt]="member.name" />
+        </div>
+        <div class="content">
+            <h2>{{ member.name }}</h2>
+            <p>{{ member.bio }}</p>
+        </div>
+    </div>
+    } @else {
+    <!-- Autres chefs : Layout Alterné (ZigZag) -->
+    <!-- i odd (1, 3...) : Texte Gauche / Image Droite -->
+    <!-- i even (2, 4...) : Image Gauche / Texte Droite -->
+    <!-- Note: Index 1 est le 2ème chef. Maquette: Haruto (2) Image Droite/Texte Gauche? -->
+    <!-- Regardons la maquette infos1.png encore. -->
+    <!-- Haruto (2): Texte Gauche, Image Droite. -->
+    <!-- Ayumi (3): Image Gauche, Texte Droite. -->
+
+    <div class="chef-card split" [class.reverse]="i % 2 === 0">
+        <div class="content">
+            <h2>{{ member.name }}</h2>
+            <p>{{ member.bio }}</p>
+        </div>
+        <div class="image-wrapper">
+            <img [src]="member.image" [alt]="member.name" />
+        </div>
+    </div>
+    }
+    }
+</div>

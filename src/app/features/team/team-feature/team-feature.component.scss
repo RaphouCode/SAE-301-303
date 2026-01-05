@@ -1,1 +1,20 @@
-/* team-feature styles */
+.team-page {
+    padding: 60px 0;
+    background-color: #FFF5F7; // Couleur rose pâle du fond
+    min-height: 80vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    font-family: serif; // Police avec empattement comme sur la maquette
+    color: #4A154B; // Violet foncé
+    font-size: 3rem;
+    margin-bottom: 60px;
+    font-weight: 700;
+}
