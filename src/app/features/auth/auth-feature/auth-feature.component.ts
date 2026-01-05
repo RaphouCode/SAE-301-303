@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { LoginFormComponent } from '../../../../shared/components/login-form/login-form.component';
-import { RegisterFormComponent } from '../../../../shared/components/register-form/register-form.component';
+import { LoginFormComponent } from '../../../shared/components/login-form/login-form.component';
+import { RegisterFormComponent } from '../../../shared/components/register-form/register-form.component';
 
 @Component({
     selector: 'app-auth-feature',
