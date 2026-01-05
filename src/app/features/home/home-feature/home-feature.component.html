@@ -1,1 +1,24 @@
-<p>home-feature works!</p>
+<div class="home-page">
+  <app-hero-section></app-hero-section>
+  <app-chef-image-section></app-chef-image-section>
+  
+  <app-content-section
+    [title]="'Bienvenue!'"
+    [text]="welcomeText"
+    [imageSrc]="'/assets/images/diego-arenas-de-rodrigo-QbR6BjcJ7zM-unsplash.jpg'"
+    [imageAlt]="'Sushi avec baguettes'"
+    [reverse]="false">
+  </app-content-section>
+
+  <app-content-section
+    [title]="'L\'authenticité avant tout'"
+    [text]="authenticityText"
+    [imageSrc]="'/assets/images/yukhoe-5868510_1280.svg'"
+    [imageAlt]="'Assiette de sushi'"
+    [reverse]="true">
+  </app-content-section>
+
+  <app-cta-section></app-cta-section>
+</div>
+
+

@@ -1,0 +1,306 @@
+.hero-section {
+  position: relative;
+  background: #FFE5E5;
+  padding: 80px 0;
+  overflow: hidden;
+
+  .container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 80px;
+    min-height: 600px;
+    padding: 40px 0;
+    // Shift left to prevent cut-off on right
+    transform: translateX(-5%);
+    width: 105%; // Compensate width to ensure it covers area
+  }
+
+  .branding {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    perspective: 1000px;
+    padding-top: 100px; // Moved down as requested
+
+    .brand-name {
+      font-family: serif;
+      font-size: 10rem; // Increased from 8rem
+      font-weight: 700;
+      color: #4A2C5A;
+      margin: 0 0 20px 0;
+      line-height: 1.1;
+      text-align: center;
+      position: relative;
+      // Combined Entrance (Bounce) + Continuous (Float)
+      // Note: CSS animation combining needs careful syntax, but 'both' usually handles the end state.
+      // To loop, we'll separate the container or use a wrapper, but simpler here: just float.
+      // actually, user wants "animé" -> Float.
+      animation: bounceIn 1.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both, titleFloat 6s ease-in-out infinite 1.5s;
+      text-shadow: 0 20px 30px rgba(74, 44, 90, 0.2);
+    }
+
+    .logo-container {
+      width: 850px; // Increased from 750px
+      height: 850px;
+      will-change: transform, opacity;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: default; // Changed from pointer to default
+      transition: transform 0.2s ease;
+      margin-top: -40px; // Joined to raise logo slightly
+
+      .logo {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        animation: logoFloat 4s ease-in-out infinite;
+        transition: filter 0.3s ease;
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      // Removed red filter on hover
+    }
+  }
+
+  .gallery {
+    flex: 1.5;
+    display: flex;
+    gap: 30px;
+    max-width: 900px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 2;
+    height: auto;
+
+    .gallery-column-left {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .gallery-column-right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center; // Vertically center the single image
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      background: white;
+      border: 5px solid #4A2C5A;
+      box-shadow: 10px 10px 0px rgba(74, 44, 90, 0.2);
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: default; // Enforce default cursor
+
+      // STRICT SIZING AS REQUESTED
+      // Reduced height to 450px (was 550px)
+      width: 280px;
+      height: 450px;
+
+      position: relative;
+
+      &:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 20px 20px 0px rgba(74, 44, 90, 0.1);
+        z-index: 10;
+        border-color: #FF5E5E;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.6s ease;
+      }
+
+      &:hover img {
+        transform: scale(1.1);
+      }
+    }
+
+    // Add delays for stagger effect
+    .gallery-item-3 {
+      animation: fadePopIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.2s both;
+    }
+
+    .gallery-item-2 {
+      animation: fadePopIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.4s both;
+    }
+
+    .gallery-item-1 {
+      animation: fadePopIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) 0.6s both;
+    }
+  }
+
+  .pattern-background {
+    position: absolute;
+    bottom: 50px; // Lifted slightly
+    right: 10%; // Moved closer to the right to be behind gallery
+    width: 450px; // Smaller (was 600)
+    height: 350px; // Scaled down
+    background-image: url('/assets/images/texture_motif.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    opacity: 0.25;
+    z-index: 0;
+    pointer-events: none;
+    transform: none; // Removed rotation (straight)
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+
+  70% {
+    transform: scale(0.9);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadePopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+
+  50% {
+    transform: translateY(-10px) scale(1.02);
+  }
+}
+
+@keyframes titleFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+
+  // Gentle float with slight tilt
+}
+
+@keyframes titleReveal {
+
+  // Keeping original logic just in case, but unused if bounceIn is active
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-section {
+    .hero-content {
+      flex-direction: column;
+      text-align: center;
+      min-height: auto;
+    }
+
+    .branding {
+      align-items: center;
+
+      .brand-name {
+        font-size: 6rem;
+      }
+
+      .logo-container {
+        width: 500px;
+        height: 500px;
+      }
+    }
+
+    .gallery {
+      max-width: 100%;
+      flex-direction: column; // Stack on mobile
+      align-items: center;
+
+      .gallery-column-left,
+      .gallery-column-right {
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 40px 0;
+
+    .container {
+      padding: 0 20px;
+    }
+
+    .branding .brand-name {
+      font-size: 4rem;
+    }
+
+    .branding .logo-container {
+      width: 400px;
+      height: 400px;
+    }
+
+    .gallery {
+      gap: 15px;
+    }
+  }
+}
