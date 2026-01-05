@@ -1,4 +1,17 @@
 <?php
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+   header("Access-Control-Allow-Origin: *");
+   header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+   header("Access-Control-Allow-Headers: Content-Type, Authorization");
+   http_response_code(204);
+   exit;
+}
+
+
+header("Access-Control-Allow-Origin: http://localhost:4200");
+header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type, Authorization");
+
 $pdo = new PDO('mysql:host=localhost;dbname=sushimi_database', 'root', '');
 
 $content = file_get_contents('php://input');

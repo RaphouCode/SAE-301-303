@@ -1,1 +1,189 @@
-// Styles Inscription vides
+// --- Variables basées sur l'image ---
+$bg-color: #fff5f6;
+$primary-color: #4a154b;
+$text-color: #000000;
+$link-color: #0000ee;
+$input-border: #333333;
+$input-radius: 8px;
+$btn-radius: 5px;
+
+$font-title: "Times New Roman", serif;
+$font-body: "Arial", sans-serif;
+
+:host {
+  display: block;
+  background-color: $bg-color;
+  min-height: 100vh;
+  font-family: $font-body;
+  color: $text-color;
+}
+
+.register-wrapper {
+  padding: 20px 40px;
+}
+
+// --- Fil d'ariane ---
+.breadcrumbs {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 40px;
+  color: #333;
+
+  strong {
+    font-weight: bold;
+  }
+}
+
+.register-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+// --- Titres ---
+.title {
+  text-align: center;
+  font-family: $font-title;
+  color: $primary-color;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.subtitle {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  font-weight: bold;
+
+  a {
+    color: $primary-color;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+// --- Formulaire ---
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+// La grille pour Nom/Prénom
+.form-row {
+  display: flex;
+  gap: 20px;
+
+  .half-width {
+    flex: 1;
+  }
+
+  // Responsive mobile
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    color: $text-color;
+  }
+
+  input {
+    padding: 12px 15px;
+    border: 1px solid $input-border;
+    border-radius: $input-radius;
+    font-size: 1rem;
+    outline: none;
+    background-color: #fff;
+
+    &:focus {
+      border-color: $primary-color;
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.1);
+    }
+  }
+
+  .error-text {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 5px;
+  }
+}
+
+// --- Checkbox & Légal ---
+.checkbox-group {
+  margin-top: 10px;
+  font-size: 1rem;
+
+  p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  a {
+    color: blue;
+    text-decoration: none;
+  }
+
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+  }
+}
+
+.legal-text {
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+// --- Bouton ---
+.submit-btn {
+  background-color: $primary-color;
+  color: white;
+  font-size: 1.2rem;
+  font-family: $font-title;
+  font-weight: bold;
+  padding: 15px 30px;
+  border: none;
+  border-radius: $btn-radius;
+  cursor: pointer;
+  width: 200px;
+  margin: 0 auto;
+  display: block;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: lighten($primary-color, 5%);
+  }
+
+  &:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+}
+
+// --- Messages de retour ---
+.success-msg {
+  text-align: center;
+  color: green;
+  margin-top: 20px;
+  font-weight: bold;
+}
+.error-msg {
+  text-align: center;
+  color: red;
+  margin-top: 20px;
+  font-weight: bold;
+}
