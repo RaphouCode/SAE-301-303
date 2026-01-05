@@ -14,22 +14,22 @@ export class AboutFeatureComponent {
         {
             title: "La Sélection de l'Excellence",
             description: "Le choix du produit est primordial. Nous sélectionnons les plus belles pièces pour vous garantir une fraîcheur et une qualité absolue à chaque bouchée.",
-            image: "assets/images/rafik-wahba-5quJ61cQU8A-unsplash 1.png"
+            image: "assets/images/sushi2.png"
         },
         {
             title: "La Précision du Geste",
             description: "La découpe est un art millimétré. Notre chef travaille chaque filet avec une précision extrême pour en exalter la finesse et la texture.",
-            image: "assets/images/rafik-wahba-5quJ61cQU8A-unsplash 1.png"
+            image: "assets/images/sushi3.png"
         },
         {
             title: "La Touche Finale",
             description: "L'équilibre parfait. Chaque pièce est délicatement laquée au pinceau avec notre sauce maison pour révéler toutes ses saveurs subtiles.",
-            image: "assets/images/rafik-wahba-5quJ61cQU8A-unsplash 1.png"
+            image: "assets/images/sushi4.png"
         },
         {
             title: "L'Art du Sushi",
             description: "Une création artisanale. Nos sushis sont façonnés à la main avec passion, alliant tradition et produits d'exception pour une expérience authentique.",
-            image: "assets/images/rafik-wahba-5quJ61cQU8A-unsplash 1.png"
+            image: "assets/images/sushi1.png"
         }
     ];
 }
