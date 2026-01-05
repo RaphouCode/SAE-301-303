@@ -1,5 +1,11 @@
 <section class="team-page">
     <div class="container">
+        <div class="breadcrumb">
+            <a routerLink="/">Accueil</a>
+            <span class="separator">></span>
+            <span>L'équipe</span>
+        </div>
+
         <h1 class="page-title">Les Chefs</h1>
 
         <app-team-grid [members]="chefs" />

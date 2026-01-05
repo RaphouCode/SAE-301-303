@@ -1,0 +1,17 @@
+// Colors
+$color-primary: #4A154B; // Dark Purple (Use for Headings, Buttons, Accents)
+$color-primary-light: lighten($color-primary, 10%);
+$color-secondary: #E53935; // Red (Use for Call to Actions, Alerts)
+$color-text: #333333; // Standard Text
+$color-text-light: #666666; // Muted Text
+$color-bg-page: #FFF5F7; // Pale Pink (Standard Page Background)
+$color-bg-white: #FFFFFF;
+$color-border: #E5E5E5;
+
+// Fonts
+$font-heading: 'Noto Serif JP', serif;
+$font-body: 'Roboto', sans-serif;
+
+// Spacing
+$spacing-container: 40px;
+$container-max-width: 1200px;

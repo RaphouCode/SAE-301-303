@@ -1,73 +1,71 @@
 <div class="register-wrapper">
-  <div class="breadcrumbs">
-    Accueil > Commande > <strong>S'inscrire</strong>
-  </div>
-
-  <div class="register-container">
-    <h2 class="title">S’inscrire</h2>
-
-    <p class="subtitle">
-      Vous ne possedez déjà un compte ? <a href="#">Se connecter</a>
-    </p>
-
-    <form [formGroup]="form" (ngSubmit)="submit()">
-      <div class="form-row">
-        <div class="form-group half-width">
-          <label for="prenom">Prénom</label>
-          <input type="text" id="prenom" formControlName="prenom" />
-        </div>
-
-        <div class="form-group half-width">
-          <label for="nom">Nom</label>
-          <input type="text" id="nom" formControlName="nom" />
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label for="mdp">Mot de passe</label>
-        <input type="password" id="mdp" formControlName="mot_de_passe" />
-      </div>
-
-      <div class="form-group">
-        <label for="email">E-mail</label>
-        <input type="email" id="email" formControlName="email" />
-        <small
-          *ngIf="form.get('email')?.invalid && form.get('email')?.touched"
-          class="error-text"
-        >
-          Email invalide
-        </small>
-      </div>
-
-      <div class="form-group">
-        <label for="adresse">Adresse</label>
-        <input type="text" id="adresse" formControlName="adresse" />
-      </div>
-
-      <div class="checkbox-group">
-        <p>
-          J’accepte les <a href="#">conditions d’utilisations.</a>
-          <input type="checkbox" id="cgu" />
-        </p>
-      </div>
-
-      <p class="legal-text">
-        En renseignant votre adresse e-mail, vous acceptez de recevoir des
-        informations et offres marketing Sushimi par courrier électronique. Vous
-        pouvez vous désabonner à tout moment à l’aide des liens de
-        désinscription intégrés dans la newsletter.
-      </p>
-
-      <button type="submit" [disabled]="form.invalid" class="submit-btn">
-        Je m’inscris
-      </button>
-    </form>
-
-    <div
-      *ngIf="message"
-      [ngClass]="{ 'success-msg': !isError, 'error-msg': isError }"
-    >
-      {{ message }}
+    <div class="breadcrumb"> <!-- Changed class from breadcrumbs to breadcrumb -->
+        <a routerLink="/">Accueil</a>
+        <span class="separator">></span>
+        <a routerLink="/cart">Commande</a>
+        <span class="separator">></span>
+        <span>S'inscrire</span>
     </div>
-  </div>
+
+    <div class="register-container">
+        <h2 class="title">S’inscrire</h2>
+
+        <p class="subtitle">
+            Vous ne possedez déjà un compte ? <a href="#">Se connecter</a>
+        </p>
+
+        <form [formGroup]="form" (ngSubmit)="submit()">
+            <div class="form-row">
+                <div class="form-group half-width">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" formControlName="prenom" />
+                </div>
+
+                <div class="form-group half-width">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" formControlName="nom" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mdp">Mot de passe</label>
+                <input type="password" id="mdp" formControlName="mot_de_passe" />
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" formControlName="email" />
+                <small *ngIf="form.get('email')?.invalid && form.get('email')?.touched" class="error-text">
+                    Email invalide
+                </small>
+            </div>
+
+            <div class="form-group">
+                <label for="adresse">Adresse</label>
+                <input type="text" id="adresse" formControlName="adresse" />
+            </div>
+
+            <div class="checkbox-group">
+                <p>
+                    J’accepte les <a href="#">conditions d’utilisations.</a>
+                    <input type="checkbox" id="cgu" />
+                </p>
+            </div>
+
+            <p class="legal-text">
+                En renseignant votre adresse e-mail, vous acceptez de recevoir des
+                informations et offres marketing Sushimi par courrier électronique. Vous
+                pouvez vous désabonner à tout moment à l’aide des liens de
+                désinscription intégrés dans la newsletter.
+            </p>
+
+            <button type="submit" [disabled]="form.invalid" class="submit-btn">
+                Je m’inscris
+            </button>
+        </form>
+
+        <div *ngIf="message" [ngClass]="{ 'success-msg': !isError, 'error-msg': isError }">
+            {{ message }}
+        </div>
+    </div>
 </div>
