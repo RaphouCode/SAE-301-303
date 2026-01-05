@@ -1,1 +1,55 @@
-/* contact-feature styles */
+.contact-page {
+    width: 100%;
+}
+
+.split-layout {
+    display: flex;
+    min-height: 800px; // Ensure consistent height for desktop
+
+    .image-side {
+        flex: 1;
+        position: relative;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+    }
+
+    .form-side {
+        flex: 1;
+        // The darker purple background is handled inside app-contact-form which takes full height/width
+    }
+
+    // Responsive: Stack on mobile
+    @media (max-width: 900px) {
+        flex-direction: column;
+
+        .image-side {
+            height: 300px;
+        }
+
+        .form-side {
+            min-height: 600px;
+        }
+    }
+}
+
+// Stay in touch banner
+.stay-in-touch-banner {
+    background-color: #fff0f5; // Light Pink
+    padding: 3rem 0;
+    text-align: center;
+    border-top: 1px solid #4a1348; // Sidebar/image border line
+
+    h3 {
+        font-family: serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #4a1348;
+        margin: 0;
+    }
+}
