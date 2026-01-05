@@ -7,8 +7,8 @@
         }
         
         
-        $sql = "INSERT INTO client (prenom, nom, email, mot_de_passe, adresse, id_client) 
-            VALUES (:prenom, :nom, :email, :password_hash, :adresse, :id_client)";
+        $sql = "INSERT INTO client (prenom, nom, email, mot_de_passe, adresse, id_client, status) 
+            VALUES (:prenom, :nom, :email, :password_hash, :adresse, :id_client, :status)";
 
         $query = $pdo->prepare($sql);
 
@@ -18,7 +18,8 @@
             ':email' => $data['email'],
             ':password_hash' => $passwordHash,
             ':adresse' => $data['adresse'],
-            ':id_client' => $data['id_client']
+            ':id_client' => $data['id_client'],
+            ':status' => 'étudiant'
         ]);
 
     }
