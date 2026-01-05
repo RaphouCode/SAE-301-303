@@ -20,7 +20,8 @@
         adresse VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL UNIQUE,
         mot_de_passe VARCHAR(255) NOT NULL, -- stocke toujours un hash, jamais le mot de passe en clair
-        api_token VARCHAR(100) NULL
+        api_token VARCHAR(100) NULL,
+        status VARCHAR(100) NULL
     );
 
     CREATE TABLE Saveur(

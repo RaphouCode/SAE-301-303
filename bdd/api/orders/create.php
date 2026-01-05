@@ -18,6 +18,18 @@ $pdo = new PDO('mysql:host=localhost;dbname=sushimi_database;charset=utf8', 'roo
 ]);
 
 try {
+    // Vérifier la quantité totale de boxes
+    $quantityTotal = 0;
+    foreach ($input['box'] as $item) {
+        $quantityTotal += $item['quantite'];
+    }
+
+    if ($quantityTotal > 10) {
+        http_response_code(409);
+        echo json_encode(["error" => "La quantité totale de boxes ne peut pas dépasser 10"]);
+        exit;
+    }
+
     $pdo->beginTransaction();
 
 
@@ -64,6 +76,16 @@ try {
         ]);
 
         $totalCalculated += ($item['quantite'] * $prixUnitaire);
+    }
+
+    // Rechercher le client en base et appliquer une remise s'il est étudiant
+    $sqlClient = "SELECT status FROM client WHERE id_client = :id_client";
+    $stmtClient = $pdo->prepare($sqlClient);
+    $stmtClient->execute([':id_client' => $input['id_client']]);
+    $clientData = $stmtClient->fetch();
+
+    if ($clientData && $clientData['status'] === 'student') {
+        $totalCalculated *= 0.9; // Appliquer 10% de réduction
     }
 
     $sqlUpdate = "UPDATE commande SET prix_total = :total WHERE id_commande = :id";
