@@ -1,1 +1,63 @@
-<p>product-detail-feature works!</p>
+<section class="procuct-detail-page">
+    <div class="breadcrumb">
+        <a routerLink="/">Accueil</a> > <a routerLink="/boxes">Menu</a> > <span>{{ box()?.nom || 'Chargement...'
+            }}</span>
+    </div>
+
+    @if (loading()) {
+    <div class="loading">Chargement du délice...</div>
+    } @else if (error()) {
+    <div class="error">{{ error() }}</div>
+    } @else if (box()) {
+    <div class="product-container">
+        <!-- Colonne Image -->
+        <div class="image-column">
+            <img [src]="box()!.image" [alt]="box()!.nom" onerror="this.src='/assets/images/sushimi-logo.png'">
+        </div>
+
+        <!-- Colonne Infos -->
+        <div class="info-column">
+            <h1>{{ box()!.nom }}</h1>
+            <p class="pieces">{{ box()!.pieces }} pièces</p>
+            <p class="price">{{ box()!.prix | number:'1.2-2' }} €</p>
+
+            <div class="description">
+                <h3>Description</h3>
+                <p>Une sélection raffinée pour les amateurs de {{ box()!.saveur }}.</p>
+            </div>
+
+            <div class="composition-grid">
+                <div class="flavor-section">
+                    <h4>Côté saveur</h4>
+                    <ul>
+                        @for (flavor of box()!.flavors; track flavor) {
+                        <li>{{ flavor }}</li>
+                        } @empty {
+                        <li>{{ box()!.saveur }}</li>
+                        }
+                    </ul>
+                </div>
+                <div class="food-section">
+                    <h4>Côté aliment</h4>
+                    <ul>
+                        @for (food of box()!.foods; track food.name) {
+                        <li>{{ food.name }}</li>
+                        } @empty {
+                        <li>Riz, Poisson...</li>
+                        }
+                    </ul>
+                </div>
+            </div>
+
+            <div class="actions">
+                <div class="quantity-selector">
+                    <button (click)="decrement()">-</button>
+                    <span>{{ quantity() }}</span>
+                    <button (click)="increment()">+</button>
+                </div>
+                <button class="btn-add" (click)="addToCart()">Ajouter au panier</button>
+            </div>
+        </div>
+    </div>
+    }
+</section>

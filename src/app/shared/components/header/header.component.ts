@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
+import { CartService } from '../../../core/services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -9,5 +10,10 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
+  cartService = inject(CartService);
 
+  toggleCart(event: Event) {
+    event.preventDefault(); // Empêche la navigation vers /cart
+    this.cartService.toggleCart();
+  }
 }

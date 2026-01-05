@@ -1,0 +1,7 @@
+<div class="boxes-container">
+    <div class="grid">
+        @for (box of boxes(); track box.id_box) {
+        <app-box-card [box]="box" (addToCart)="onBoxClick($event)" />
+        }
+    </div>
+</div>

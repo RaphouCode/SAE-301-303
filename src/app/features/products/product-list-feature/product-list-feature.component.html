@@ -1,1 +1,13 @@
-<p>product-list-feature works!</p>
+<section class="boxes-page">
+    <div class="header-section">
+        <p class="breadcrumb">Accueil > Menu</p>
+        <h1>Nos Boxes de Sushi</h1>
+        <p class="intro-text">
+            Bienvenue dans notre univers de sushis, où chaque recette est préparée avec soin,
+            des ingrédients frais et de qualité, pour vous offrir un moment gourmand et authentique à chaque bouchée.
+        </p>
+    </div>
+
+    <!-- Smart Component affiche le Dumb Component -->
+    <app-box-grid [boxes]="boxes()" (boxClicked)="onBoxClicked($event)" />
+</section>

@@ -19,6 +19,14 @@ export const routes: Routes = [
     { path: 'checkout', component: CartFeatureComponent },
     { path: 'login', component: AuthFeatureComponent },
     { path: 'register', component: AuthFeatureComponent },
+    {
+        path: 'boxes',
+        loadComponent: () => import('./features/products/product-list-feature/product-list-feature.component').then(m => m.ProductListFeatureComponent)
+    },
+    {
+        path: 'boxes/:id',
+        loadComponent: () => import('./features/products/product-detail-feature/product-detail-feature.component').then(m => m.ProductDetailFeatureComponent)
+    },
     { path: 'contact', component: ContactFeatureComponent },
     { path: 'cgu', component: CguFeatureComponent },
     { path: '**', redirectTo: '' }

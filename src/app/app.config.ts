@@ -6,8 +6,6 @@ import {
   provideClientHydration,
   withEventReplay,
 } from '@angular/platform-browser';
-
-// 1. AJOUTER CET IMPORT
 import { provideHttpClient, withFetch } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
@@ -15,8 +13,6 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideClientHydration(withEventReplay()),
-
-    // 2. AJOUTER CETTE LIGNE POUR ACTIVER LES REQUÊTES VERS PHP
     provideHttpClient(withFetch()),
   ],
 };

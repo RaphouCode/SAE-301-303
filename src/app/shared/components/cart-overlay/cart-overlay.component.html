@@ -1,0 +1,37 @@
+@if (cartService.isOpen()) {
+<div class="cart-overlay-backdrop" (click)="close()"></div>
+<div class="cart-panel">
+    <div class="cart-header">
+        <h2>Mon Panier ({{ cartService.count() }})</h2>
+        <button class="close-btn" (click)="close()">&times;</button>
+    </div>
+
+    <div class="cart-items">
+        @for (item of cartService.items(); track item.box.id_box) {
+        <app-cart-item-row [item]="{
+                        id: item.box.id_box,
+                        name: item.box.nom,
+                        price: item.box.prix,
+                        quantity: item.quantity,
+                        image: item.box.image
+                    }" (remove)="onRemove($event)" (updateQuantity)="onUpdateQuantity($event)" />
+        } @empty {
+        <div class="empty-cart">
+            <p>Votre panier est vide 🍙</p>
+            <button class="btn-continue" (click)="close()">Continuer mes achats</button>
+        </div>
+        }
+    </div>
+
+    @if (cartService.items().length > 0) {
+    <div class="cart-footer">
+        <div class="total-row">
+            <span>Total</span>
+            <span class="total-price">{{ cartService.total() | number:'1.2-2' }} €</span>
+        </div>
+        <!-- TODO: Route checkout à implémenter -->
+        <button class="btn-checkout">Commander</button>
+    </div>
+    }
+</div>
+}

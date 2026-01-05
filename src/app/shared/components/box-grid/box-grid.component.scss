@@ -1,0 +1,23 @@
+.boxes-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); // 4 colonnes sur desktop
+    gap: 30px;
+
+    @media (max-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 800px) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 500px) {
+        grid-template-columns: 1fr;
+    }
+}

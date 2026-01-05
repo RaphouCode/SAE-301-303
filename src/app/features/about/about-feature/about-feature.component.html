@@ -1,32 +1,11 @@
-<<<<<<< Updated upstream
 <section class="about-page">
     <div class="container">
         <div class="breadcrumb">
-            <span>Accueil</span> - <span class="current">À propos de nous</span>
+            <a routerLink="/">Accueil</a> > <span>A propos</span>
         </div>
 
-        <h1 class="page-title">Notre savoir-faire</h1>
+        <h1>Notre savoir-faire</h1>
 
         <app-about-grid [items]="savoirFaireItems" />
     </div>
 </section>
-=======
-<div class="about-page">
-    <app-hero-banner [title]="heroTitle" [subtitle]="heroSubtitle" [backgroundImage]="heroImage">
-    </app-hero-banner>
-
-    <app-about-story [title]="storyTitle" [description]="storyDescription" [image]="storyImage">
-    </app-about-story>
-
-    <app-about-values [values]="values">
-    </app-about-values>
-
-    <section class="team-section">
-        <div class="container">
-            <h2>Notre Équipe</h2>
-            <app-team-grid [members]="teamMembers">
-            </app-team-grid>
-        </div>
-    </section>
-</div>
->>>>>>> Stashed changes

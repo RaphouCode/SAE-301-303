@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { RegisterFormComponent } from './shared/components/register-form/register-form.component';
+import { CartOverlayComponent } from './shared/components/cart-overlay/cart-overlay.component';
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import { RegisterFormComponent } from './shared/components/register-form/registe
     HeaderComponent,
     FooterComponent,
     RegisterFormComponent,
+    CartOverlayComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',

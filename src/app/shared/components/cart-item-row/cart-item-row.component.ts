@@ -1,17 +1,19 @@
 import { Component, input, output } from '@angular/core';
 
 export interface CartItem {
-    id: string;
+    id: number;
     name: string;
     price: number;
     quantity: number;
     image: string;
 }
 
+import { CommonModule } from '@angular/common';
+
 @Component({
     selector: 'app-cart-item-row',
     standalone: true,
-    imports: [],
+    imports: [CommonModule],
     templateUrl: './cart-item-row.component.html',
     styleUrl: './cart-item-row.component.scss'
 })
@@ -20,6 +22,6 @@ export class CartItemRowComponent {
     // Image, Nom, Qté, Prix, Bouton Supprimer
     item = input.required<CartItem>();
 
-    remove = output<string>();
-    updateQuantity = output<{ id: string; quantity: number }>();
+    remove = output<number>();
+    updateQuantity = output<{ id: number; quantity: number }>();
 }

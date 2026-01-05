@@ -1,0 +1,15 @@
+<div class="box-card">
+    <div class="image-container">
+        <!-- Placeholder ou image réelle (les images de la BDD pointeront vers des fichiers à ajouter plus tard) -->
+        <img [src]="box().image" [alt]="box().nom" class="box-image"
+            onerror="this.src='/assets/images/sushimi-logo.png'">
+        <span class="piece-badge">{{ box().pieces }} pièces</span>
+    </div>
+
+    <div class="box-content">
+        <h3 class="box-title">{{ box().nom }}</h3>
+        <p class="box-price">{{ box().prix | number:'1.2-2' }} €</p>
+
+        <button class="btn-reserver" (click)="onAdd()">Réserver</button>
+    </div>
+</div>

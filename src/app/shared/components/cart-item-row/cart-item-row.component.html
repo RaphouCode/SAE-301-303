@@ -1,1 +1,20 @@
-<p>cart-item-row works!</p>
+<div class="cart-item">
+    <div class="item-image">
+        <img [src]="item().image" [alt]="item().name" onerror="this.src='/assets/images/sushimi-logo.png'">
+    </div>
+
+    <div class="item-details">
+        <div class="header">
+            <h3>{{ item().name }}</h3>
+            <button class="btn-remove" (click)="remove.emit(item().id)">&times;</button>
+        </div>
+
+        <p class="price">{{ item().price | number:'1.2-2' }} €</p>
+
+        <div class="quantity-controls">
+            <button (click)="updateQuantity.emit({ id: item().id, quantity: item().quantity - 1 })">-</button>
+            <span>{{ item().quantity }}</span>
+            <button (click)="updateQuantity.emit({ id: item().id, quantity: item().quantity + 1 })">+</button>
+        </div>
+    </div>
+</div>

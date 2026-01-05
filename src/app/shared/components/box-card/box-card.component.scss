@@ -1,0 +1,76 @@
+@import '../../../../styles.scss';
+
+.box-card {
+    background: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.2s;
+    font-family: 'Noto Serif JP', serif;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.image-container {
+    position: relative;
+    height: 180px;
+    width: 100%;
+
+    .box-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .piece-badge {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 4px 8px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 0.8rem;
+        border-radius: 4px;
+        font-weight: 500;
+        color: #333;
+    }
+}
+
+.box-content {
+    padding: 15px;
+    text-align: center;
+    background-color: #FFF0F5; // Fond légèrement rosé (inspiré de la maquette)
+}
+
+.box-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.box-price {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.btn-reserver {
+    background-color: transparent;
+    border: 1px solid #4A154B;
+    color: #4A154B;
+    padding: 8px 25px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+
+    &:hover {
+        background-color: #4A154B;
+        color: white;
+    }
+}
