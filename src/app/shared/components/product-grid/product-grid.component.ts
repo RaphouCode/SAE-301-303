@@ -16,7 +16,5 @@ export interface Product {
     styleUrl: './product-grid.component.scss'
 })
 export class ProductGridComponent {
-    // Dumb Component - Mise en page grille responsive
-    // CSS Grid : repeat(auto-fill, minmax(300px, 1fr))
     products = input.required<Product[]>();
 }

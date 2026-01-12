@@ -9,9 +9,6 @@ import { Component, input, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ChefImageSectionComponent {
-  // Dumb Component - Section image horizontale du chef
   imageSrc = input<string>('/assets/images/chef_preparing_sushi.jpg');
   imageAlt = input<string>('Chef préparant des sushis');
 }
-
-

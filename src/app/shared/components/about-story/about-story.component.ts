@@ -12,5 +12,4 @@ export class AboutStoryComponent {
     title = input.required<string>();
     description = input.required<string[]>();
     image = input.required<string>();
-    // Rebuild trigger
 }

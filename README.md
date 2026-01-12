@@ -1,59 +1,156 @@
-# SAE301303
+# Sushimi - Application de commande de Sushis 🍣
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.3.
+Application web Angular pour la commande de boxes de sushis en ligne.
 
-## Development server
+## 📋 Prérequis
 
-To start a local development server, run:
+Avant de commencer, assurez-vous d'avoir installé :
 
-```bash
-ng serve
-```
+- **Node.js** (v18 ou supérieur) - [Télécharger ici](https://nodejs.org/)
+- **XAMPP** (ou équivalent avec Apache + MySQL) - [Télécharger ici](https://www.apachefriends.org/)
+- **Angular CLI** (installé globalement) : `npm install -g @angular/cli`
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---
 
-## Code scaffolding
+## 🚀 Installation
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+### 1. Cloner le projet
 
 ```bash
-ng generate --help
+git clone <url-du-repo>
+cd SAE-301-303
 ```
 
-## Building
-
-To build the project run:
+### 2. Installer les dépendances Node.js
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+---
 
-## Running unit tests
+## 🗄️ Configuration de la Base de Données (XAMPP)
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+### Étape 1 : Démarrer XAMPP
+1. Lancez **XAMPP Control Panel**
+2. Démarrez **Apache** et **MySQL**
+
+### Étape 2 : Créer la base de données
+1. Allez sur [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+2. Créez une nouvelle base de données nommée : `sushimi_database`
+
+### Étape 3 : Importer les tables
+1. Sélectionnez la base `sushimi_database`
+2. Cliquez sur l'onglet **Importer**
+3. Importez le fichier : `bdd/create_table.sql`
+4. Ensuite, importez : `bdd/insert_test.sql` (données de test)
+
+### Étape 4 : Placer l'API PHP
+Copiez le dossier `bdd/` dans votre répertoire `htdocs` de XAMPP :
+
+```
+C:\xampp\htdocs\sushimi\bdd\
+```
+
+> ⚠️ **Important** : Le dossier doit être nommé `sushimi` dans `htdocs` pour que l'API fonctionne avec la configuration par défaut.
+
+---
+
+## ⚙️ Configuration de l'URL de l'API
+
+Si vous avez installé l'API dans un dossier différent de `htdocs/sushimi`, modifiez le fichier :
+
+**`src/environments/environment.ts`**
+
+```typescript
+export const environment = {
+    production: false,
+    apiBaseUrl: 'http://localhost/VOTRE_DOSSIER/bdd/api'  // ← Modifiez ici
+};
+```
+
+---
+
+## 🏃 Lancer l'application
+
+### Développement
 
 ```bash
-ng test
+npm start
 ```
 
-## Running end-to-end tests
+L'application sera accessible sur : [http://localhost:4200](http://localhost:4200)
 
-For end-to-end (e2e) testing, run:
+### Production (Build)
 
 ```bash
-ng e2e
+npm run build
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Les fichiers de production seront dans le dossier `dist/`.
 
-## Additional Resources
+---
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## 📁 Structure du Projet
+
+```
+SAE-301-303/
+├── bdd/                          # Backend PHP + SQL
+│   ├── api/                      # Endpoints API
+│   │   ├── boxes/                # API des boxes (produits)
+│   │   ├── users/                # API authentification
+│   │   └── orders/               # API commandes
+│   ├── manager/                  # Classes PHP utilitaires
+│   ├── create_table.sql          # Script de création des tables
+│   └── insert_test.sql           # Données de test
+│
+├── src/                          # Frontend Angular
+│   ├── app/
+│   │   ├── core/                 # Services, Guards, Models
+│   │   ├── features/             # Pages (Home, Products, Auth...)
+│   │   └── shared/               # Composants réutilisables
+│   ├── assets/                   # Images, fonts
+│   └── environments/             # Configuration API
+│
+├── package.json                  # Dépendances Node.js
+└── README.md                     # Ce fichier
+```
+
+---
+
+## 🎯 Fonctionnalités
+
+- ✅ Affichage des boxes de sushis
+- ✅ Page détail produit
+- ✅ Système de panier
+- ✅ Inscription / Connexion utilisateur
+- ✅ Page équipe
+- ✅ Page contact
+- ✅ Conditions générales d'utilisation
+
+---
+
+## 🛠️ Technologies Utilisées
+
+| Catégorie | Technologie |
+|-----------|-------------|
+| Frontend | Angular 19 |
+| Backend | PHP 8 |
+| Base de données | MySQL (MariaDB) |
+| Serveur local | XAMPP (Apache) |
+| Styles | SCSS |
+
+---
+
+## 👥 Équipe
+
+Projet réalisé dans le cadre de la SAE 301-303 du BUT MMI.
+
+---
+
+## 📝 Notes pour l'oral
+
+1. **Vérifiez que XAMPP est lancé** avant de démarrer l'application
+2. **La base de données doit être importée** (les 2 fichiers SQL)
+3. **L'API doit être dans `htdocs/sushimi/bdd/`** pour fonctionner sans modification
+

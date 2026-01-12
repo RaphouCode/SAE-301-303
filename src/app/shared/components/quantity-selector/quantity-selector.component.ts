@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
     styleUrl: './quantity-selector.component.scss'
 })
 export class QuantitySelectorComponent {
-    // TODO: Ajouter @Input() quantity, @Output() quantityChange
 }

@@ -39,12 +39,9 @@ export class ProductDetailFeatureComponent implements OnInit {
                 this.box.set(data);
                 this.loading.set(false);
             },
-            error: (err) => {
-                console.error(err);
-                this.error.set("Impossible de charger la box. Vérifiez que get_box.php est bien installé.");
+            error: () => {
+                this.error.set("Impossible de charger la box.");
                 this.loading.set(false);
-                // Mock fallback pour le design si l'API plante
-                // this.box.set(this.getMockBox(id)); 
             }
         });
     }
@@ -60,24 +57,6 @@ export class ProductDetailFeatureComponent implements OnInit {
     addToCart() {
         if (this.box()) {
             this.cartService.addToCart(this.box()!, this.quantity());
-            console.log(`Ajouté au panier: ${this.quantity()} x ${this.box()?.nom}`);
         }
     }
-
-    /*private getMockBox(id: number): Box {
-      return {
-        id_box: id,
-        nom: 'Tasty Blend',
-        pieces: 12,
-        prix: 12.50,
-        image: 'assets/images/sushi1.png',
-        saveur: 'Saumon, Thon, Avocat',
-        foods: [
-          { name: 'Riz vinaigré', quantity: 1 },
-          { name: 'Saumon frais', quantity: 1 },
-          { name: 'Avocat', quantity: 1 }
-        ],
-        flavors: ['Douceur', 'Fraîcheur']
-      };
-    }*/
 }

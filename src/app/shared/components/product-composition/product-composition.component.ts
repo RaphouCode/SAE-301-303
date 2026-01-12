@@ -13,7 +13,5 @@ export interface CompositionItem {
     styleUrl: './product-composition.component.scss'
 })
 export class ProductCompositionComponent {
-    // Dumb Component - Liste des ingrédients
-    // Ex: "3 California Saumon Avocat"
     composition = input.required<CompositionItem[]>();
 }

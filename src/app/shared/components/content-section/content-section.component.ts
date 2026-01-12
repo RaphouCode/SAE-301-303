@@ -9,7 +9,6 @@ import { Component, input, ElementRef, AfterViewInit, ViewChild, ChangeDetection
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContentSectionComponent implements AfterViewInit {
-  // Dumb Component - Section contenu alterné (texte/image)
   title = input.required<string>();
   text = input.required<string>();
   imageSrc = input.required<string>();
@@ -46,5 +45,3 @@ export class ContentSectionComponent implements AfterViewInit {
     }
   }
 }
-
-

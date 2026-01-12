@@ -10,11 +10,9 @@ export interface CartItem {
     providedIn: 'root'
 })
 export class CartService {
-    // State
     private itemsSig = signal<CartItem[]>([]);
     private isOpenSig = signal<boolean>(false);
 
-    // Computed
     readonly items = this.itemsSig.asReadonly();
     readonly isOpen = this.isOpenSig.asReadonly();
 
@@ -26,7 +24,6 @@ export class CartService {
         this.itemsSig().reduce((acc, item) => acc + (item.box.prix * item.quantity), 0)
     );
 
-    // Methods
     toggleCart() {
         this.isOpenSig.update(v => !v);
     }
@@ -51,7 +48,7 @@ export class CartService {
             }
             return [...items, { box, quantity }];
         });
-        this.openCart(); // Ouvre le panier quand on ajoute
+        this.openCart();
     }
 
     removeFromCart(boxId: number) {

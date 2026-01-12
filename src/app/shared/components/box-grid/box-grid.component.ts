@@ -12,7 +12,7 @@ import { Box } from '../../../core/models/box.model';
 })
 export class BoxGridComponent {
     boxes = input.required<Box[]>();
-    boxClicked = output<Box>(); // Pour remonter le clic au smart component
+    boxClicked = output<Box>();
 
     onBoxClick(box: Box) {
         this.boxClicked.emit(box);

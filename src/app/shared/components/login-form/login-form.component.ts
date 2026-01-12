@@ -8,6 +8,7 @@ import {
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
+import { environment } from '@env/environment';
 
 @Component({
     selector: 'app-login-form',
@@ -34,30 +35,21 @@ export class LoginFormComponent {
     }
 
     onRegisterClick(event: Event) {
-        event.preventDefault(); // Empêche le rechargement de la page
-        this.switchToRegister.emit(); // Envoie le signal au parent (AuthFeature)
+        event.preventDefault();
+        this.switchToRegister.emit();
     }
 
     submit() {
         if (this.form.invalid) return;
 
-        // Attention : Vérifie bien que ce chemin est correct !
-        // URL corrigée pour correspondre à votre configuration XAMPP ("sushimi")
-        const apiUrl = 'http://localhost/sushimi/bdd/api/users/login.php';
+        const apiUrl = `${environment.apiBaseUrl}/users/login.php`;
 
         this.http.post(apiUrl, this.form.value).subscribe({
             next: (response: any) => {
-                console.log('Réponse serveur:', response);
-
-                // 1. On sauvegarde l'utilisateur connecté dans le navigateur
                 sessionStorage.setItem('user', JSON.stringify(response.user));
-
-                // 2. Redirection vers la page d'accueil (ou profil)
                 this.router.navigate(['/']);
             },
             error: (err) => {
-                console.error('Erreur:', err);
-                // Affiche l'erreur renvoyée par PHP ou un message par défaut
                 this.message = err.error?.error || 'Email ou mot de passe incorrect.';
             },
         });

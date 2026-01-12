@@ -17,13 +17,7 @@ export interface Product {
     styleUrl: './product-card.component.scss'
 })
 export class ProductCardComponent {
-    // Dumb Component - Carte produit unitaire
-    // Image, Titre ("Tasty Blend"), Composition (12 pièces), Prix
-    // Le bouton "Réserver" émet addToCart au lieu d'ajouter directement
-    // C'est ProductListFeature qui capte l'événement et appelle CartService
-
     product = input.required<Product>();
-
     addToCart = output<Product>();
 
     onReserve(): void {

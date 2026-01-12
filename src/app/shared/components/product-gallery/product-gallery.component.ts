@@ -13,7 +13,5 @@ export interface ProductImage {
     styleUrl: './product-gallery.component.scss'
 })
 export class ProductGalleryComponent {
-    // Dumb Component - Galerie images produit
-    // Image principale + vignettes
     images = input.required<ProductImage[]>();
 }

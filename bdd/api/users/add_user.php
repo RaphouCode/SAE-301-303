@@ -1,12 +1,11 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-   header("Access-Control-Allow-Origin: *");
-   header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
-   header("Access-Control-Allow-Headers: Content-Type, Authorization");
-   http_response_code(204);
-   exit;
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+    header("Access-Control-Allow-Headers: Content-Type, Authorization");
+    http_response_code(204);
+    exit;
 }
-
 
 header("Access-Control-Allow-Origin: http://localhost:4200");
 header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
@@ -16,15 +15,6 @@ $pdo = new PDO('mysql:host=localhost;dbname=sushimi_database', 'root', '');
 
 $content = file_get_contents('php://input');
 $data = json_decode($content, true);
-
-/*$data = [
-    'prenom' => 'John',
-    'nom' => 'Doe',
-    'email' => 'exemple@gmail.com',
-    'mot_de_passe' => 'password123',
-    'adresse' => '123 Rue Principale',
-    'id_client' => 1
-];*/
 
 if (!isset($data['prenom'], $data['nom'], $data['email'], $data['mot_de_passe'], $data['adresse'])) {
     header('Content-Type: application/json');
@@ -46,15 +36,10 @@ $query->execute([
     ':email' => $data['email'],
     ':password_hash' => $passwordHash,
     ':adresse' => $data['adresse'],
-]);  //Déplacer dans UserManager.php (potentiellement)
+]);
 
 header('Content-Type: application/json');
 http_response_code(201);
 
 echo json_encode(['message' => 'Utilisateur ajouté avec succès']);
-
-
-
-
-
 ?>

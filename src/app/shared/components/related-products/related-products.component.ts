@@ -15,8 +15,5 @@ export interface Product {
     styleUrl: './related-products.component.scss'
 })
 export class RelatedProductsComponent {
-    // Dumb Component - Produits similaires
-    // "Découvrez également nos différents boxes mix"
-    // Réutilise ProductCard
     products = input.required<Product[]>();
 }

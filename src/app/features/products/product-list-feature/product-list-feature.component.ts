@@ -22,27 +22,12 @@ export class ProductListFeatureComponent implements OnInit {
         this.boxService.getAllBoxes().subscribe({
             next: (data) => {
                 this.boxes.set(data);
-                console.log('Boxes chargées:', data);
             },
-            error: (err) => {
-                console.error('Erreur chargement boxes:', err);
-                // this.boxes.set(this.getMockBoxes()); // Désactivé pour voir les vraies données (ou l'erreur)
-            }
+            error: () => { }
         });
     }
 
     onBoxClicked(box: Box) {
         this.router.navigate(['/boxes', box.id_box]);
-    }
-
-    private getMockBoxes(): Box[] {
-        return Array(8).fill(null).map((_, i) => ({
-            id_box: i + 1,
-            nom: `Box Sushi Test ${i + 1}`,
-            pieces: 12 + i,
-            prix: 12.50 + i,
-            image: '',
-            saveur: 'Saumon'
-        }));
     }
 }

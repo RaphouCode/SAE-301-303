@@ -13,7 +13,7 @@ export class HeaderComponent {
   cartService = inject(CartService);
 
   toggleCart(event: Event) {
-    event.preventDefault(); // Empêche la navigation vers /cart
+    event.preventDefault();
     this.cartService.toggleCart();
   }
 }

@@ -10,11 +10,8 @@ $pdo = new PDO('mysql:host=localhost;dbname=sushimi_database', 'root', '');
 $boxes = $pdo->query("SELECT * FROM box")->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($boxes as &$box) {
-    // Conversion du prix en float "24.50" en 24.50
     $box['prix'] = round($box['prix'], 2);
 
-
-    // Étape 2 : foods
     $stmt = $pdo->prepare("
        SELECT f.name, CAST(bf.quantity AS UNSIGNED) AS quantity
        FROM box_foods bf
@@ -24,8 +21,6 @@ foreach ($boxes as &$box) {
     $stmt->execute(['id_box' => $box['id_box']]);
     $box['foods'] = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
-    // Étape 3 : flavors
     $stmt = $pdo->prepare("
        SELECT fl.name
        FROM box_flavors bf

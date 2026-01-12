@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
     styleUrl: './cart-item.component.scss'
 })
 export class CartItemComponent {
-    // TODO: Ajouter @Input() item, @Output() remove, @Output() updateQuantity
 }

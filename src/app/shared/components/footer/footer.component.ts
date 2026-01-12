@@ -13,12 +13,10 @@ export class FooterComponent {
   private router = inject(Router);
 
   scrollToTop() {
-    // Scroll en haut de la page avec animation smooth
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
   navigateAndScrollToTop(route: string) {
-    // Navigation puis scroll en haut
     this.router.navigate([route]).then(() => {
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' });

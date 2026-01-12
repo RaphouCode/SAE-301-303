@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
     styleUrl: './input.component.scss'
 })
 export class InputComponent {
-    // TODO: Ajouter les @Input() et la logique du champ de saisie
 }

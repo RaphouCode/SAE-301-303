@@ -8,5 +8,4 @@ import { Component } from '@angular/core';
     styleUrl: './category-filter.component.scss'
 })
 export class CategoryFilterComponent {
-    // TODO: Ajouter @Input() categories, @Output() categoryChange
 }

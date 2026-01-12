@@ -17,7 +17,7 @@ export interface TeamMember {
 })
 export class TeamGridComponent implements AfterViewInit {
     members = input.required<TeamMember[]>();
-    
+
     @ViewChildren('chefCard') chefCards!: QueryList<ElementRef>;
 
     ngAfterViewInit() {
@@ -38,7 +38,6 @@ export class TeamGridComponent implements AfterViewInit {
             });
         }, observerOptions);
 
-        // Observer les éléments après un court délai pour s'assurer qu'ils sont dans le DOM
         setTimeout(() => {
             this.chefCards.forEach(card => {
                 if (card.nativeElement) {
