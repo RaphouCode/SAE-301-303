@@ -31,8 +31,5 @@ foreach ($boxes as &$box) {
     $box['flavors'] = array_column($stmt->fetchAll(), 'name');
 }
 
-
-
 header('Content-Type: application/json; charset=utf-8');
 echo json_encode($boxes);
-
