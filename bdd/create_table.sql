@@ -29,7 +29,8 @@
         adresse VARCHAR(255) NOT NULL,
         email VARCHAR(255) NOT NULL UNIQUE,
         mot_de_passe VARCHAR(255) NOT NULL,
-        api_token VARCHAR(100) NULL
+        api_token VARCHAR(100) NULL,
+        status VARCHAR(50) NOT NULL DEFAULT 'regular' -- 'regular' ou 'student' pour remise -10%
     );
 
     -- Table COMMANDE (Inchangé)

@@ -1,4 +1,5 @@
-import { Injectable, computed, signal } from '@angular/core';
+import { Injectable, computed, signal, effect, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Box } from '../models/box.model';
 
 export interface CartItem {
@@ -6,11 +7,14 @@ export interface CartItem {
     quantity: number;
 }
 
+const STORAGE_KEY = 'sushimi_cart';
+
 @Injectable({
     providedIn: 'root'
 })
 export class CartService {
-    private itemsSig = signal<CartItem[]>([]);
+    private platformId = inject(PLATFORM_ID);
+    private itemsSig = signal<CartItem[]>(this.loadFromStorage());
     private isOpenSig = signal<boolean>(false);
 
     readonly items = this.itemsSig.asReadonly();
@@ -23,6 +27,37 @@ export class CartService {
     readonly total = computed(() =>
         this.itemsSig().reduce((acc, item) => acc + (item.box.prix * item.quantity), 0)
     );
+
+    constructor() {
+        // Auto-save cart to localStorage whenever it changes
+        effect(() => {
+            this.saveToStorage(this.itemsSig());
+        });
+    }
+
+    private loadFromStorage(): CartItem[] {
+        if (isPlatformBrowser(this.platformId)) {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    return JSON.parse(saved);
+                }
+            } catch (e) {
+                console.error('Error loading cart from localStorage:', e);
+            }
+        }
+        return [];
+    }
+
+    private saveToStorage(items: CartItem[]): void {
+        if (isPlatformBrowser(this.platformId)) {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+            } catch (e) {
+                console.error('Error saving cart to localStorage:', e);
+            }
+        }
+    }
 
     toggleCart() {
         this.isOpenSig.update(v => !v);
