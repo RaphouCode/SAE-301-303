@@ -45,6 +45,8 @@ npm install
 3. Importez le fichier : `bdd/create_table.sql`
 4. Ensuite, importez : `bdd/insert_test.sql` (données de test)
 
+> 💡 **Migration** : Si vous avez déjà une base existante, exécutez `bdd/migration_add_status.sql` pour ajouter le champ tarif étudiant.
+
 ### Étape 4 : Placer l'API PHP
 Copiez le dossier `bdd/` dans votre répertoire `htdocs` de XAMPP :
 
@@ -122,11 +124,14 @@ SAE-301-303/
 
 - ✅ Affichage des boxes de sushis
 - ✅ Page détail produit
-- ✅ Système de panier
+- ✅ Système de panier **persistant** (localStorage)
 - ✅ Inscription / Connexion utilisateur
+- ✅ **Validation de commandes** avec confirmation
+- ✅ **Dashboard Admin** avec graphiques (Chart.js)
+- ✅ **Tarif étudiant** (-10% automatique)
 - ✅ Page équipe
 - ✅ Page contact
-- ✅ Conditions générales d'utilisation
+- ✅ Politique de confidentialité (RGPD)
 
 ---
 
@@ -134,11 +139,12 @@ SAE-301-303/
 
 | Catégorie | Technologie |
 |-----------|-------------|
-| Frontend | Angular 19 |
-| Backend | PHP 8 |
+| Frontend | Angular 19 (Signals, SSR) |
+| Backend | PHP 8 (PDO, Transactions) |
 | Base de données | MySQL (MariaDB) |
 | Serveur local | XAMPP (Apache) |
 | Styles | SCSS |
+| Graphiques | Chart.js |
 
 ---
 
@@ -153,4 +159,6 @@ Projet réalisé dans le cadre de la SAE 301-303 du BUT MMI.
 1. **Vérifiez que XAMPP est lancé** avant de démarrer l'application
 2. **La base de données doit être importée** (les 2 fichiers SQL)
 3. **L'API doit être dans `htdocs/sushimi/bdd/`** pour fonctionner sans modification
+4. **Test F5** : Ajoutez des produits au panier, rafraîchissez la page → le panier reste !
+5. **Dashboard Admin** : Accessible via le footer ou `/admin`
 
