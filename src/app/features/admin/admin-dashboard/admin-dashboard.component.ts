@@ -5,12 +5,12 @@ import { RouterLink } from '@angular/router';
 import { environment } from '@env/environment';
 import { Chart, registerables, ChartData, ChartOptions } from 'chart.js';
 
-// Dumb Components
+// Composants de présentation
 import { KpiCardComponent } from '../../../shared/components/kpi-card/kpi-card.component';
 import { StatsChartComponent } from '../../../shared/components/stats-chart/stats-chart.component';
 import { OrdersTableComponent } from '../../../shared/components/orders-table/orders-table.component';
 
-// Register Chart.js components
+// Enregistrement des composants Chart.js
 Chart.register(...registerables);
 
 interface StatsResponse {
@@ -41,12 +41,12 @@ interface StatsResponse {
 export class AdminDashboardComponent implements OnInit {
     private http = inject(HttpClient);
 
-    // State
+    // État
     stats = signal<StatsResponse['data'] | null>(null);
     loading = signal(true);
     error = signal<string | null>(null);
 
-    // Computed values for KPI cards
+    // Valeurs calculées pour les KPI
     formattedTotalCA = computed(() => {
         const ca = this.stats()?.total_ca ?? 0;
         const numCa = typeof ca === 'string' ? parseFloat(ca) : ca;
@@ -61,7 +61,7 @@ export class AdminDashboardComponent implements OnInit {
         }));
     });
 
-    // Computed Chart Data
+    // Données calculées pour les graphiques
     salesChartData = computed<ChartData>(() => {
         const ventesByBox = this.stats()?.ventes_par_box ?? [];
         const colors = [

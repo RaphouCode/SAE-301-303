@@ -1,11 +1,11 @@
-// --- Variables basées sur ton image ---
-$bg-color: #fff5f9; // Fond rose très pâle
-$primary-color: #3e1238; // Le violet "Aubergine" foncé du bouton/titre
+// --- Variables de style ---
+$bg-color: #fff5f9; // Fond de page
+$primary-color: #3e1238; // Couleur principale
 $text-color: #000000;
-$input-border: #888; // Gris pour les bordures
-$radius: 8px; // Arrondi des coins
+$input-border: #888; // Couleur de bordure
+$radius: 8px; // Rayon de courbure
 
-// Polices (approximatives selon l'image)
+// Polices de caractères
 $font-serif: "Times New Roman", serif; // Pour le titre et le bouton
 $font-sans: "Arial", sans-serif; // Pour les labels
 
@@ -20,7 +20,7 @@ $font-sans: "Arial", sans-serif; // Pour les labels
 
 .login-container {
   width: 100%;
-  max-width: 450px; // Largeur contenue comme sur l'image
+  max-width: 450px; // Largeur maximale du conteneur
   padding: 20px;
   text-align: center;
 }
@@ -29,7 +29,7 @@ $font-sans: "Arial", sans-serif; // Pour les labels
 .title {
   font-family: $font-serif;
   color: $primary-color;
-  font-size: 3rem; // Très grand comme sur l'image
+  font-size: 3rem; // Taille de police du titre
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -51,8 +51,8 @@ $font-sans: "Arial", sans-serif; // Pour les labels
 form {
   display: flex;
   flex-direction: column;
-  gap: 25px; // Espacement entre les blocs
-  text-align: left; // Les labels sont alignés à gauche
+  gap: 25px; // Espacement
+  text-align: left;
 }
 
 .form-group {
@@ -60,7 +60,7 @@ form {
   flex-direction: column;
 
   label {
-    font-family: $font-serif; // Les labels semblent être en serif ou gras sur l'image
+    font-family: $font-serif; // Style des labels
     font-weight: bold;
     font-size: 1.1rem;
     margin-bottom: 8px;
@@ -74,6 +74,8 @@ form {
     font-size: 1rem;
     background-color: white;
     outline: none;
+    width: 100%; // Pleine largeur
+    box-sizing: border-box; // Gestion du padding
 
     &:focus {
       border-color: $primary-color;
@@ -81,8 +83,50 @@ form {
     }
   }
 
+  &.password-group {
+    .password-input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+
+      input {
+        padding-right: 45px; // Space for the eye icon
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 18px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        transition: color 0.2s ease, transform 0.2s ease;
+
+        &:hover {
+          color: $primary-color;
+          transform: scale(1.1);
+        }
+
+        &:focus {
+          outline: 2px solid $primary-color;
+          outline-offset: 2px;
+          border-radius: 4px;
+        }
+
+        svg {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+
   .forgot-pwd {
-    align-self: flex-start; // Calé à gauche
+    align-self: flex-start;
     margin-top: 8px;
     font-family: $font-sans;
     font-size: 0.9rem;

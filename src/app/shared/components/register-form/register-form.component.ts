@@ -37,6 +37,7 @@ export class RegisterFormComponent implements AfterViewInit {
             mot_de_passe: ['', [Validators.required, Validators.minLength(6)]],
             confirm_password: ['', Validators.required],
             adresse: ['', Validators.required],
+            is_student: [false],
         }, { validators: this.passwordMatchValidator });
     }
 
@@ -109,10 +110,14 @@ export class RegisterFormComponent implements AfterViewInit {
             return;
         }
 
-        const { confirm_password, ...userData } = this.form.value;
+        const { confirm_password, is_student, ...userData } = this.form.value;
+        const dataToSend = {
+            ...userData,
+            status: is_student ? 'student' : 'regular'
+        };
         const apiUrl = `${environment.apiBaseUrl}/users/add_user.php`;
 
-        this.http.post(apiUrl, userData).subscribe({
+        this.http.post(apiUrl, dataToSend).subscribe({
             next: () => {
                 this.message = 'Inscription réussie ! Vous pouvez maintenant vous connecter.';
                 this.isError = false;

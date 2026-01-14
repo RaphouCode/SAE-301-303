@@ -1,9 +1,9 @@
 <section>
   @if (isLoggedIn) {
-  <!-- Dumb Component: Affiche le message de bienvenue -->
+  <!-- Composant d'affichage : Message de bienvenue -->
   <app-user-welcome [userName]="userFullName" [userEmail]="userEmail" (logout)="onLogout()" />
   } @else {
-  <!-- Login / Register forms -->
+  <!-- Formulaires de Connexion / Inscription -->
   @if (isLoginMode) {
   <app-login-form (switchToRegister)="toggleView()" />
   } @else {

@@ -18,7 +18,7 @@
             <p class="hint">Vérifiez que XAMPP est lancé et que l'API est accessible.</p>
         </div>
         } @else if (stats()) {
-        <!-- KPI Cards (Dumb Components) -->
+        <!-- Cartes KPI (Composants de présentation) -->
         <div class="kpi-grid">
             <app-kpi-card icon="💰" [value]="formattedTotalCA()" label="Chiffre d'affaires total" />
 
@@ -27,7 +27,7 @@
             <app-kpi-card icon="👥" [subValues]="clientSubValues()" label="Clients" />
         </div>
 
-        <!-- Charts (Dumb Components) -->
+        <!-- Graphiques (Composants de présentation) -->
         <div class="charts-grid">
             <app-stats-chart title="Ventes par Box" type="doughnut" [data]="salesChartData()"
                 [options]="salesChartOptions" />
@@ -36,7 +36,7 @@
                 [options]="monthlyChartOptions" />
         </div>
 
-        <!-- Orders Table (Dumb Component) -->
+        <!-- Tableau des commandes (Composant de présentation) -->
         <app-orders-table title="Commandes Récentes" [orders]="stats()!.commandes_recentes" />
         }
     </div>

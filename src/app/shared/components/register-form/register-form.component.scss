@@ -41,6 +41,7 @@
         opacity: 0;
         transform: translateY(-20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -170,6 +171,7 @@ form {
     from {
         opacity: 0;
     }
+
     to {
         opacity: 1;
     }
@@ -207,6 +209,31 @@ form {
         width: 20px;
         height: 20px;
         cursor: pointer;
+    }
+
+    &.student-checkbox {
+        background: linear-gradient(135deg, rgba($color-primary, 0.05), rgba($color-primary, 0.1));
+        padding: 15px 20px;
+        border-radius: 10px;
+        border: 1px dashed rgba($color-primary, 0.3);
+
+        label {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .discount-badge {
+            background: linear-gradient(135deg, #4CAF50, #8BC34A);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 20px;
+            margin-left: auto;
+        }
     }
 }
 
@@ -272,6 +299,7 @@ form {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);

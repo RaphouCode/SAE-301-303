@@ -23,8 +23,13 @@ export class LoginFormComponent {
 
     form: FormGroup;
     message: string = '';
+    showPassword: boolean = false;
 
     @Output() switchToRegister = new EventEmitter<void>();
+
+    togglePasswordVisibility() {
+        this.showPassword = !this.showPassword;
+    }
 
     constructor(
         private fb: FormBuilder,

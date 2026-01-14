@@ -24,9 +24,10 @@ if (!isset($data['prenom'], $data['nom'], $data['email'], $data['mot_de_passe'],
 }
 
 $passwordHash = password_hash($data['mot_de_passe'], PASSWORD_DEFAULT);
+$status = isset($data['status']) && $data['status'] === 'student' ? 'student' : 'regular';
 
-$sql = "INSERT INTO client (prenom, nom, email, mot_de_passe, adresse) 
-        VALUES (:prenom, :nom, :email, :password_hash, :adresse)";
+$sql = "INSERT INTO client (prenom, nom, email, mot_de_passe, adresse, status) 
+        VALUES (:prenom, :nom, :email, :password_hash, :adresse, :status)";
 
 $query = $pdo->prepare($sql);
 
@@ -36,6 +37,7 @@ $query->execute([
     ':email' => $data['email'],
     ':password_hash' => $passwordHash,
     ':adresse' => $data['adresse'],
+    ':status' => $status,
 ]);
 
 header('Content-Type: application/json');
