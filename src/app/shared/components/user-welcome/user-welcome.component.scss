@@ -1,0 +1,68 @@
+@import '../../../../variables';
+
+.welcome-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 60vh;
+    padding: 40px 20px;
+}
+
+.welcome-card {
+    background: $color-bg-white;
+    border-radius: 20px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+
+    .avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, $color-primary, lighten($color-primary, 20%));
+        color: white;
+        font-size: 2.5rem;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 24px;
+        font-family: $font-heading;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+        color: $color-primary;
+    }
+
+    .email {
+        color: $color-text-light;
+        font-size: 0.95rem;
+        margin-bottom: 16px;
+    }
+
+    .message {
+        color: $color-text;
+        margin-bottom: 30px;
+    }
+
+    .btn-logout {
+        background: transparent;
+        border: 2px solid $color-secondary;
+        color: $color-secondary;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+            background: $color-secondary;
+            color: white;
+        }
+    }
+}

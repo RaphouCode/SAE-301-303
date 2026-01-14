@@ -1,0 +1,19 @@
+<div class="welcome-container">
+    <div class="welcome-card">
+        <div class="avatar">
+            <span>{{ userName.charAt(0).toUpperCase() }}</span>
+        </div>
+
+        <h2>Bonjour {{ userName }} !</h2>
+
+        @if (userEmail) {
+        <p class="email">{{ userEmail }}</p>
+        }
+
+        <p class="message">Vous êtes déjà connecté.</p>
+
+        <button class="btn-logout" (click)="onLogout()">
+            Se déconnecter
+        </button>
+    </div>
+</div>

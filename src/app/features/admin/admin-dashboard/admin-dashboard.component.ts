@@ -49,7 +49,8 @@ export class AdminDashboardComponent implements OnInit {
     // Computed values for KPI cards
     formattedTotalCA = computed(() => {
         const ca = this.stats()?.total_ca ?? 0;
-        return ca.toFixed(2).replace('.', ',') + ' €';
+        const numCa = typeof ca === 'string' ? parseFloat(ca) : ca;
+        return numCa.toFixed(2).replace('.', ',') + ' €';
     });
 
     clientSubValues = computed(() => {
@@ -70,7 +71,7 @@ export class AdminDashboardComponent implements OnInit {
         return {
             labels: ventesByBox.map(v => v.nom),
             datasets: [{
-                data: ventesByBox.map(v => v.total_vendus),
+                data: ventesByBox.map(v => typeof v.total_vendus === 'string' ? parseInt(v.total_vendus) : v.total_vendus),
                 backgroundColor: colors.slice(0, ventesByBox.length),
                 borderWidth: 2,
                 borderColor: '#ffffff'
@@ -104,7 +105,7 @@ export class AdminDashboardComponent implements OnInit {
             }),
             datasets: [{
                 label: 'Chiffre d\'affaires (€)',
-                data: caByMonth.map(m => m.ca_mensuel),
+                data: caByMonth.map(m => typeof m.ca_mensuel === 'string' ? parseFloat(m.ca_mensuel) : m.ca_mensuel),
                 backgroundColor: '#4A154B',
                 borderRadius: 8
             }]
