@@ -1,0 +1,33 @@
+<div class="table-card">
+    <h2>{{ title }}</h2>
+    @if (orders.length > 0) {
+    <table class="orders-table">
+        <thead>
+            <tr>
+                <th>N° Commande</th>
+                <th>Client</th>
+                <th>Date</th>
+                <th>Montant</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (order of orders; track order.id_commande) {
+            <tr>
+                <td>#{{ order.id_commande }}</td>
+                <td>{{ order.client_name }}</td>
+                <td>{{ formatDate(order.date_commande) }}</td>
+                <td class="price">{{ formatPrice(order.prix_total) }}</td>
+                <td>
+                    <span class="status-badge" [class]="order.status">
+                        {{ order.status }}
+                    </span>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    } @else {
+    <p class="empty-state">Aucune commande pour le moment.</p>
+    }
+</div>

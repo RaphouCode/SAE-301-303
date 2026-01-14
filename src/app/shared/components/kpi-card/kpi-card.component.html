@@ -1,0 +1,14 @@
+<div class="kpi-card">
+    <span class="kpi-icon">{{ icon }}</span>
+    <div class="kpi-content">
+        @if (value !== undefined) {
+        <span class="kpi-value">{{ value }}</span>
+        }
+        @if (subValues) {
+        @for (sub of subValues; track sub.label) {
+        <span class="kpi-value-small">{{ sub.value }} {{ sub.label }}</span>
+        }
+        }
+        <span class="kpi-label">{{ label }}</span>
+    </div>
+</div>

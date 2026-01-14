@@ -6,15 +6,26 @@
         <button class="close-btn" (click)="close()">&times;</button>
     </div>
 
+    @if (orderSuccess()) {
+    <!-- Success State -->
+    <div class="success-state">
+        <div class="success-icon">✓</div>
+        <h3>Commande validée !</h3>
+        <p>Votre commande n°{{ orderId() }} a été enregistrée avec succès.</p>
+        <p class="success-detail">Vous recevrez bientôt un email de confirmation.</p>
+        <button class="btn-continue" (click)="close()">Continuer mes achats</button>
+    </div>
+    } @else {
+    <!-- Cart Content -->
     <div class="cart-items">
         @for (item of cartService.items(); track item.box.id_box) {
         <app-cart-item-row [item]="{
-                        id: item.box.id_box,
-                        name: item.box.nom,
-                        price: item.box.prix,
-                        quantity: item.quantity,
-                        image: item.box.image
-                    }" (remove)="onRemove($event)" (updateQuantity)="onUpdateQuantity($event)" />
+                            id: item.box.id_box,
+                            name: item.box.nom,
+                            price: item.box.prix,
+                            quantity: item.quantity,
+                            image: item.box.image
+                        }" (remove)="onRemove($event)" (updateQuantity)="onUpdateQuantity($event)" />
         } @empty {
         <div class="empty-cart">
             <p>Votre panier est vide 🍙</p>
@@ -23,15 +34,32 @@
         }
     </div>
 
+    @if (orderError()) {
+    <div class="error-message">
+        {{ orderError() }}
+    </div>
+    }
+
     @if (cartService.items().length > 0) {
     <div class="cart-footer">
+        @if (!authService.isLoggedIn) {
+        <p class="login-hint">Connectez-vous pour commander</p>
+        }
         <div class="total-row">
             <span>Total</span>
             <span class="total-price">{{ cartService.total() | number:'1.2-2' }} €</span>
         </div>
-        <!-- TODO: Route checkout à implémenter -->
-        <button class="btn-checkout">Commander</button>
+        <button class="btn-checkout" (click)="checkout()" [disabled]="isProcessing()" [class.loading]="isProcessing()">
+            @if (isProcessing()) {
+            Traitement...
+            } @else if (!authService.isLoggedIn) {
+            Se connecter
+            } @else {
+            Commander
+            }
+        </button>
     </div>
+    }
     }
 </div>
 }

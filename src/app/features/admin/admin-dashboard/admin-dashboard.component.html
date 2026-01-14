@@ -1,0 +1,43 @@
+<section class="admin-page">
+    <div class="container">
+        <div class="breadcrumb">
+            <a routerLink="/">Accueil</a>
+            <span class="separator">></span>
+            <span>Administration</span>
+        </div>
+
+        <h1 class="page-title">Tableau de Bord</h1>
+
+        @if (loading()) {
+        <div class="loading-state">
+            <p>Chargement des statistiques...</p>
+        </div>
+        } @else if (error()) {
+        <div class="error-state">
+            <p>{{ error() }}</p>
+            <p class="hint">Vérifiez que XAMPP est lancé et que l'API est accessible.</p>
+        </div>
+        } @else if (stats()) {
+        <!-- KPI Cards (Dumb Components) -->
+        <div class="kpi-grid">
+            <app-kpi-card icon="💰" [value]="formattedTotalCA()" label="Chiffre d'affaires total" />
+
+            <app-kpi-card icon="📦" [value]="stats()!.nb_commandes" label="Commandes passées" />
+
+            <app-kpi-card icon="👥" [subValues]="clientSubValues()" label="Clients" />
+        </div>
+
+        <!-- Charts (Dumb Components) -->
+        <div class="charts-grid">
+            <app-stats-chart title="Ventes par Box" type="doughnut" [data]="salesChartData()"
+                [options]="salesChartOptions" />
+
+            <app-stats-chart title="Évolution du CA" type="bar" [data]="monthlyChartData()"
+                [options]="monthlyChartOptions" />
+        </div>
+
+        <!-- Orders Table (Dumb Component) -->
+        <app-orders-table title="Commandes Récentes" [orders]="stats()!.commandes_recentes" />
+        }
+    </div>
+</section>

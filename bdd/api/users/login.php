@@ -54,6 +54,14 @@ header('Content-Type: application/json');
 http_response_code(200);
 echo json_encode([
     'message' => 'Connexion réussie',
-    'api_token' => $token
+    'api_token' => $token,
+    'user' => [
+        'id_client' => $client['id_client'],
+        'nom' => $client['nom'],
+        'prenom' => $client['prenom'],
+        'email' => $client['email'],
+        'adresse' => $client['adresse'],
+        'status' => $client['status'] ?? 'regular'
+    ]
 ]);
 ?>

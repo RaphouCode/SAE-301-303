@@ -29,5 +29,9 @@ export const routes: Routes = [
     },
     { path: 'contact', component: ContactFeatureComponent },
     { path: 'cgu', component: CguFeatureComponent },
+    {
+        path: 'admin',
+        loadComponent: () => import('./features/admin/admin-dashboard/admin-dashboard.component').then(m => m.AdminDashboardComponent)
+    },
     { path: '**', redirectTo: '' }
 ];

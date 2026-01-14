@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component, Output, EventEmitter, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
     FormBuilder,
@@ -7,17 +7,20 @@ import {
     ReactiveFormsModule,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { Router, RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { environment } from '@env/environment';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
     selector: 'app-login-form',
     standalone: true,
-    imports: [CommonModule, ReactiveFormsModule, RouterLink],
+    imports: [CommonModule, ReactiveFormsModule],
     templateUrl: './login-form.component.html',
     styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent {
+    private authService = inject(AuthService);
+
     form: FormGroup;
     message: string = '';
 
@@ -44,9 +47,9 @@ export class LoginFormComponent {
 
         const apiUrl = `${environment.apiBaseUrl}/users/login.php`;
 
-        this.http.post(apiUrl, this.form.value).subscribe({
-            next: (response: any) => {
-                sessionStorage.setItem('user', JSON.stringify(response.user));
+        this.http.post<any>(apiUrl, this.form.value).subscribe({
+            next: (response) => {
+                this.authService.login(response.user, response.api_token);
                 this.router.navigate(['/']);
             },
             error: (err) => {
@@ -55,3 +58,4 @@ export class LoginFormComponent {
         });
     }
 }
+
